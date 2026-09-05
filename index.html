@@ -121,6 +121,223 @@ footer{padding:38px 0;border-top:1px solid var(--line)}.footer{display:flex;just
   .contact{padding:40px 23px}
 }
 @media(max-width:768px){body:before{display:none}}
+
+/* Imago 10/10 polish — preserve the liked layout, refine rhythm and hierarchy */
+:root{--paper:#f5f3ee;--line:#d0cdc5;--blue:#3657f5;--lime:#d9ff3f}
+.wrap{width:min(1340px,calc(100% - 72px))}
+header{height:78px}
+header.scrolled{background:rgba(245,243,238,.78);backdrop-filter:blur(24px) saturate(1.05)}
+.nav-cta{padding:12px 18px}
+.hero{padding:132px 0 46px}
+.hero-grid{grid-template-columns:minmax(0,1fr) 350px;gap:58px}
+.hero h1{font-size:clamp(5.5rem,13.7vw,12.4rem);margin-top:27px}
+.hero-copy{padding-bottom:4px;max-width:320px}
+.hero-copy>p{font-size:16px;line-height:1.6}
+.tagline{margin:25px 0 22px}
+.hero-bottom{margin-top:82px;padding-top:15px}
+.orb{width:375px;height:375px;right:5%;top:30%;opacity:.9;animation:float 11s ease-in-out infinite}
+.section{padding:126px 0}
+.intro{grid-template-columns:220px minmax(0,1fr);gap:54px}
+.intro h2{max-width:900px}
+.intro-copy{margin-top:24px}
+.cap-grid{margin-top:62px;gap:14px;grid-template-columns:1.18fr .82fr}
+.feature-card,.cap-card,.case{border-radius:24px}
+.feature-card{min-height:535px;padding:30px}
+.feature-card h3{margin-top:88px}
+.cap-stack{gap:14px}
+.cap-card{min-height:163px;padding:24px 25px}
+.cap-card h3{margin-top:35px}
+.cap-card p{margin-bottom:18px}
+.arrow{display:none}
+.card-action{font-size:10px}
+.card-action b{width:24px;height:24px}
+.cap-card:hover{transform:translateY(-4px);box-shadow:0 22px 60px rgba(14,15,13,.075)}
+.manifesto{padding:128px 0}
+.manifesto h2{margin-top:40px;max-width:1080px}
+.manifesto-copy{margin-top:38px}
+.process{margin-top:76px}
+.step{min-height:176px}
+.case-wrap{margin-top:64px;gap:14px}
+.case{min-height:500px;padding:29px}
+.case h3{margin-top:72px}
+.about-grid{grid-template-columns:330px minmax(0,1fr);gap:76px}
+.portrait{height:410px;border-radius:24px}
+.about-copy h2{max-width:820px}
+.founder-line{margin-top:25px}
+.about-copy p:not(.founder-line){margin-top:21px}
+.facts{margin-top:25px}
+.faq-grid{grid-template-columns:220px minmax(0,1fr);gap:54px}
+.faq-intro h3{font-size:clamp(1.8rem,3vw,3rem);line-height:.98;letter-spacing:-.065em;margin-top:24px;max-width:240px}
+.faq-intro p{font-size:12px;line-height:1.6;color:#77746d;max-width:220px;margin-top:16px}
+.faq button{padding:21px 0;font-size:15px}
+.contact-section{padding-top:8px;padding-bottom:78px}
+.contact{border-radius:30px;padding:64px;grid-template-columns:.94fr 1.06fr;gap:70px;background:#3657f5}
+.contact h2{margin-top:50px}
+.submit{padding:15px 21px}
+footer{padding:34px 0}
+@media(max-width:900px){
+ .wrap{width:min(100% - 42px,680px)}
+ .hero{padding:102px 0 34px}
+ .hero-grid{grid-template-columns:1fr;gap:0}
+ .hero h1{font-size:clamp(4.7rem,18vw,8rem);margin-top:23px}
+ .hero-copy{padding-top:46px;max-width:390px}
+ .orb{width:250px;height:250px;right:-85px;top:37%;opacity:.28}
+ .hero-bottom{margin-top:64px}
+ .section{padding:92px 0}
+ .intro{grid-template-columns:1fr;gap:0}
+ .intro>div:first-child{margin-bottom:26px}
+ .cap-grid{margin-top:48px;grid-template-columns:1fr;gap:12px}
+ .feature-card{min-height:470px}
+ .cap-stack{gap:12px}
+ .cap-card{min-height:158px}
+ .manifesto{padding:92px 0}
+ .manifesto h2{margin-top:32px}
+ .process{margin-top:58px}
+ .case-wrap{margin-top:48px;grid-template-columns:1fr;gap:12px}
+ .case{min-height:440px}
+ .about-grid{grid-template-columns:1fr;gap:42px}
+ .portrait{height:440px}
+ .faq-grid{grid-template-columns:1fr;gap:0}
+ .faq-intro{margin-bottom:28px}
+ .faq-intro h3{max-width:360px}
+ .faq-intro p{max-width:360px}
+ .contact{padding:46px 28px;display:block}
+ .contact h2{margin-top:43px}
+}
+@media(max-width:580px){
+ .wrap{width:calc(100% - 32px)}
+ header{height:72px}
+ .hero{padding-top:92px}
+ .hero h1{font-size:clamp(4rem,19.2vw,6.4rem);letter-spacing:-.105em}
+ .hero-copy{padding-top:40px}
+ .hero-bottom{margin-top:55px;gap:18px}
+ .scroll{display:none}
+ .feature-card{min-height:420px;padding:24px}
+ .feature-card h3{margin-top:72px;font-size:clamp(2.55rem,12vw,4.4rem)}
+ .feature-card p{left:24px;bottom:24px}
+ .cap-card{min-height:150px;padding:21px;border-radius:20px}
+ .cap-card h3{font-size:23px;margin-top:31px}
+ .case{min-height:410px;padding:23px;border-radius:21px}
+ .case h3{margin-top:58px;font-size:clamp(2.35rem,10.5vw,4rem)}
+ .browser{width:74%;height:170px}
+ .portrait{height:390px;border-radius:21px}
+ .contact{border-radius:23px;padding:40px 22px}
+ .contact h2{font-size:clamp(3.35rem,15vw,5.5rem)}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* Imago refinement pass — premium, warm, likeable */
+:root{--paper:#f6f4ef;--ink:#10110f;--muted:#77756e;--line:#d8d5cd;--blue:#405cff;--lime:#d9ff46}
+body{letter-spacing:-.005em}
+header{height:80px}
+.nav{height:100%}
+.logo-mark{width:28px;height:28px}
+.nav-cta{border-color:#b8b5ad;padding:11px 17px}
+.hero{padding-top:138px;padding-bottom:42px}
+.hero-grid{grid-template-columns:minmax(0,1fr) 330px;gap:48px}
+.hero h1{font-size:clamp(5.2rem,13.2vw,11.9rem);line-height:.8;letter-spacing:-.115em;margin-top:29px}
+.hero-copy>p{font-size:16px;line-height:1.65;color:#252621}
+.tagline{font-size:13px;line-height:1.5;margin:27px 0 23px;padding-left:14px}
+.hero-bottom{margin-top:72px;padding-top:16px}
+.orb{width:365px;height:365px;right:6%;top:31%;opacity:.86;box-shadow:0 30px 90px rgba(54,87,245,.10)}
+.section{padding:118px 0}
+.intro{grid-template-columns:205px minmax(0,1fr);gap:62px}
+.intro h2{font-size:clamp(3.35rem,6.8vw,6.8rem);line-height:.9}
+.intro-copy{font-size:15px;line-height:1.72;max-width:610px}
+.cap-grid{margin-top:58px;grid-template-columns:1.15fr .85fr;gap:14px}
+.feature-card,.cap-card,.case{border-radius:22px}
+.feature-card{min-height:525px;padding:29px}
+.feature-card h3{font-size:clamp(2.65rem,4.7vw,5.1rem);line-height:.88;margin-top:92px;max-width:650px}
+.feature-card p{left:29px;bottom:29px}
+.feature-shape{width:375px;height:375px;right:-85px;bottom:-95px}
+.cap-stack{gap:14px}
+.cap-card{min-height:161px;padding:23px 24px;background:rgba(255,255,255,.72)}
+.cap-card h3{font-size:25px;margin-top:34px}
+.cap-card p{margin-top:8px;margin-bottom:15px}
+.card-action{font-size:10px;letter-spacing:.02em}
+.card-action b{width:23px;height:23px}
+.cap-card:hover{transform:translateY(-4px);box-shadow:0 20px 55px rgba(14,15,13,.07)}
+.manifesto{padding:122px 0}
+.manifesto h2{font-size:clamp(4rem,8.6vw,8.5rem);line-height:.84}
+.manifesto-copy{max-width:500px;margin-top:37px}
+.process{margin-top:72px}
+.step{min-height:170px}
+.step h3{font-size:19px}
+.case-wrap{margin-top:58px;gap:14px}
+.case{min-height:490px;padding:29px;background:#e9e6de}
+.case:nth-child(2){background:#e2e7ff}
+.case h3{font-size:clamp(2.45rem,4.5vw,4.7rem);line-height:.88;margin-top:70px}
+.browser{transition:transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .6s ease}
+.case:hover .browser{box-shadow:0 28px 65px rgba(0,0,0,.11)}
+.case:nth-child(1):hover .browser{transform:rotate(-3deg) translateY(-5px)}
+.case:nth-child(2):hover .browser{transform:rotate(3deg) translateY(-5px)}
+.about-grid{grid-template-columns:315px minmax(0,1fr);gap:82px}
+.portrait{height:430px;border-radius:22px}
+.portrait-note{bottom:15px;left:15px}
+.about-copy h2{font-size:clamp(3rem,5.7vw,5.8rem);line-height:.88}
+.founder-line{font-size:clamp(1.2rem,1.8vw,1.5rem);margin-top:27px}
+.about-copy p:not(.founder-line){font-size:14px;line-height:1.78;max-width:660px}
+.facts{margin-top:26px}
+.fact{background:rgba(255,255,255,.35)}
+.faq-grid{grid-template-columns:205px minmax(0,1fr);gap:62px}
+.faq-intro h3{font-size:clamp(1.9rem,2.8vw,2.8rem);line-height:1;margin-top:23px}
+.faq-intro p{line-height:1.7}
+.faq button{padding:22px 0;font-size:15px}
+.answer p{font-size:12.5px;line-height:1.7}
+.contact-section{padding-top:0;padding-bottom:70px}
+.contact{border-radius:28px;padding:60px;grid-template-columns:.95fr 1.05fr;gap:65px}
+.contact h2{font-size:clamp(3.7rem,6.6vw,6.6rem);line-height:.82;margin-top:52px}
+.contact-copy>p{line-height:1.7}
+.engagement-note{margin-top:34px}
+.submit{transition:transform .25s ease,box-shadow .25s ease}
+.submit:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(16,17,15,.16)}
+footer{padding:32px 0}
+@media(max-width:900px){
+ .hero{padding-top:101px}
+ .hero-grid{display:block}
+ .hero h1{font-size:clamp(4.7rem,18vw,8rem);line-height:.8}
+ .hero-copy{padding-top:43px}
+ .orb{width:245px;height:245px;right:-80px;top:35%;opacity:.22}
+ .hero-bottom{margin-top:60px}
+ .section{padding:88px 0}
+ .intro{display:block}
+ .intro h2{font-size:clamp(3.25rem,13.8vw,6rem)}
+ .cap-grid{margin-top:45px}
+ .feature-card{min-height:455px}
+ .feature-card h3{margin-top:72px}
+ .manifesto{padding:90px 0}
+ .manifesto h2{font-size:clamp(3.45rem,14.2vw,6.2rem)}
+ .process{margin-top:54px}
+ .case-wrap{margin-top:45px}
+ .case{min-height:425px}
+ .about-grid{display:block}
+ .portrait{height:425px;margin-bottom:42px}
+ .about-copy h2{font-size:clamp(3.15rem,13vw,5.6rem)}
+ .faq-grid{display:block}
+ .faq-intro{margin-bottom:27px}
+ .contact{display:block;padding:45px 27px}
+ .contact h2{margin-top:43px}
+ .form{margin-top:46px}
+}
+@media(max-width:580px){
+ .wrap{width:calc(100% - 32px)}
+ .hero{padding-top:94px}
+ .hero h1{font-size:clamp(4rem,19vw,6.35rem)}
+ .hero-copy{padding-top:37px}
+ .hero-bottom{margin-top:53px}
+ .feature-card{min-height:415px;padding:23px}
+ .feature-card h3{font-size:clamp(2.5rem,11.8vw,4.2rem);margin-top:68px}
+ .feature-card p{left:23px;bottom:23px}
+ .cap-card{min-height:148px;padding:20px;border-radius:19px}
+ .cap-card h3{font-size:22px;margin-top:30px}
+ .manifesto{padding:86px 0}
+ .case{min-height:400px;padding:22px;border-radius:20px}
+ .case h3{margin-top:56px}
+ .portrait{height:370px;border-radius:20px}
+ .contact{padding:39px 21px;border-radius:22px}
+ .contact h2{font-size:clamp(3.3rem,14.8vw,5.4rem)}
+}
+
 </style>
 </head>
 <body>
@@ -160,7 +377,7 @@ footer{padding:38px 0;border-top:1px solid var(--line)}.footer{display:flex;just
 
 <section class="section" id="about"><div class="wrap"><div class="about-grid"><div class="portrait reveal"><img src="imago-founder.png" alt="Romil Shah, Founder of Imago"><div class="portrait-note mono">Founder</div></div><div class="about-copy reveal"><div class="mono">04 / About Imago</div><h2 style="margin-top:32px">Great technology starts with understanding the <span class="serif">problem.</span></h2><p class="founder-line">Not just writing the code.</p><p>Imago is founded by <strong>Romil Shah</strong>, a software engineer with 10 years of industry experience and 7+ years working in the US. His background spans Java, Spring Boot, React, AWS, microservices and distributed systems — building production-grade technology at the intersection of engineering, product and real-world business needs.</p><p>With a Master of Science from the US, he brings a global perspective and a builder’s mindset to creating digital products designed to make an impact.</p><div class="facts"><span class="fact">Software Engineering</span><span class="fact">Product Thinking</span><span class="fact">Cloud & APIs</span><span class="fact">AI & Automation</span></div></div></div></div></section>
 
-<section class="section" id="faq"><div class="wrap"><div class="faq-grid"><div class="mono">05 / FAQ</div><div class="faq-list reveal">
+<section class="section" id="faq"><div class="wrap"><div class="faq-grid"><div class="faq-intro"><div class="mono">05 / FAQ</div><h3>Questions before we start.</h3><p>Clear answers to the things clients usually want to know before a project begins.</p></div><div class="faq-list reveal">
 <div class="faq"><button type="button" aria-expanded="false" aria-controls="faq-answer-1"><span>How long does a project take?</span><span>+</span></button><div class="answer" id="faq-answer-1"><p>It depends on scope. A focused website can move quickly, while custom applications and larger systems need a more involved discovery and build phase.</p></div></div>
 <div class="faq"><button type="button" aria-expanded="false" aria-controls="faq-answer-2"><span>Can my team update the website themselves?</span><span>+</span></button><div class="answer" id="faq-answer-2"><p>Yes. When a content-managed setup makes sense, we can build the experience so your team can handle everyday content updates without touching code.</p></div></div>
 <div class="faq"><button type="button" aria-expanded="false" aria-controls="faq-answer-3"><span>Do you help with content and visuals?</span><span>+</span></button><div class="answer" id="faq-answer-3"><p>Yes. We can help shape the messaging, structure, visual direction and content needed to make the final experience feel complete.</p></div></div>
