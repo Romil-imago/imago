@@ -14,7 +14,28 @@ const journey = [
   ["05","Improve","Learn from lead quality and campaign signals."]
 ];
 export default function HomePage(){return <><SiteHeader/><main className="new-home">
-<section className="nh-hero"><div className="container nh-hero-inner"><div className="nh-kicker"><span/> INDEPENDENT GROWTH PARTNER <span className="nh-kicker-right">IMAGO / 2026</span></div><div className="nh-hero-main"><div><h1>Make your<br/>marketing <em>mean</em><br/>something.</h1><p className="nh-lede">We help ambitious businesses turn social media into attention, demand and qualified leads—with strategy, creative and performance working together.</p><div className="nh-actions"><Link className="button button-dark" href="/growth">Get a growth audit ↗</Link><a className="nh-link" href="#approach">See how we work ↓</a></div><div className="nh-art" aria-label="Abstract Imago brand artwork"><div className="nh-art-ring ring-one"/><div className="nh-art-ring ring-two"/><div className="nh-art-core"><span>IM</span></div><span className="nh-art-label">ATTENTION<br/>→ ACTION</span></div></div><div className="nh-hero-foot"><span>STRATEGY · CREATIVE · PERFORMANCE</span><span>BUILT FOR BUSINESS, NOT BUSYWORK.</span></div></div></section>
+ <section className="nh-hero">
+  <div className="container nh-hero-inner">
+   <div className="nh-kicker"><span /> INDEPENDENT GROWTH PARTNER <span className="nh-kicker-right">IMAGO / 2026</span></div>
+   <div className="nh-hero-main">
+    <div className="nh-hero-copy">
+     <h1>Make your<br/>marketing <em>mean</em><br/>something.</h1>
+     <p className="nh-lede">We help ambitious businesses turn social media into attention, demand and qualified leads—with strategy, creative and performance working together.</p>
+     <div className="nh-actions">
+      <Link className="button button-dark" href="/growth">Get a growth audit</Link>
+      <a className="nh-link" href="#approach">See how we work ↓</a>
+     </div>
+    </div>
+    <div className="nh-art" aria-label="Abstract Imago brand artwork">
+     <div className="nh-art-ring ring-one" />
+     <div className="nh-art-ring ring-two" />
+     <div className="nh-art-core"><span>IM</span></div>
+     <span className="nh-art-label">ATTENTION<br/>→ ACTION</span>
+    </div>
+   </div>
+   <div className="nh-hero-foot"><span>STRATEGY · CREATIVE · PERFORMANCE</span><span>BUILT FOR BUSINESS, NOT BUSYWORK.</span></div>
+  </div>
+ </section>
 <section className="nh-manifesto"><div className="container nh-manifesto-grid"><span className="nh-label">THE PROBLEM</span><h2>More content isn't the answer.<br/><em>A better system is.</em></h2><p>Posting consistently is not a growth strategy by itself. Your message, creative, distribution and conversion experience need to work as one—so attention has somewhere useful to go.</p></div></section>
 <section className="nh-pillars" id="services"><div className="container"><div className="nh-section-top"><span className="nh-label">WHAT IMAGO DOES / 01</span><p>One partner. Three connected disciplines.</p></div><div className="nh-pillar-grid">{pillars.map(p=><article className="nh-pillar" key={p.n}><span className="nh-number">{p.n}</span><span className="nh-pillar-tag">{p.tag}</span><h3>{p.name}</h3><p>{p.text}</p><span className="nh-pillar-arrow">↗</span></article>)}</div></section>
 <section className="nh-system" id="approach"><div className="container"><div className="nh-system-head"><span className="nh-label">THE GROWTH LOOP / 02</span><h2>From first glance<br/>to <em>next step.</em></h2><p>Every campaign should have a job. Here's the simple system behind the work—and how we keep making it better.</p></div><div className="nh-journey">{journey.map((j,i)=><article className="nh-journey-step" key={j[0]}><span>{j[0]}</span><h3>{j[1]}</h3><p>{j[2]}</p>{i<journey.length-1&&<b aria-hidden="true">→</b>}</article>)}</div><div className="nh-loop-note"><span>↻</span><p><strong>Then we learn and repeat.</strong> Lead quality and campaign signals shape the next round of strategy, creative and spend.</p></div><div className="nh-path"><span>ORGANIC SOCIAL</span><i>+</i><span>PAID MEDIA</span><i>→</i><span className="nh-path-result">QUALIFIED DEMAND</span></div></div></section>
