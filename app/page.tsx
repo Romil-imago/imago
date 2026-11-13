@@ -37,7 +37,25 @@ export default function HomePage(){return <><SiteHeader/><main className="new-ho
   </div>
  </section>
 <section className="nh-manifesto"><div className="container nh-manifesto-grid"><span className="nh-label">THE PROBLEM</span><h2>More content isn't the answer.<br/><em>A better system is.</em></h2><p>Posting consistently is not a growth strategy by itself. Your message, creative, distribution and conversion experience need to work as one—so attention has somewhere useful to go.</p></div></section>
-<section className="nh-pillars" id="services"><div className="container"><div className="nh-section-top"><span className="nh-label">WHAT IMAGO DOES / 01</span><p>One partner. Three connected disciplines.</p></div><div className="nh-pillar-grid">{pillars.map(p=><article className="nh-pillar" key={p.n}><span className="nh-number">{p.n}</span><span className="nh-pillar-tag">{p.tag}</span><h3>{p.name}</h3><p>{p.text}</p><span className="nh-pillar-arrow">↗</span></article>)}</div></section>
+ <section className="nh-pillars" id="services">
+  <div className="container">
+   <div className="nh-section-top">
+    <span className="nh-label">WHAT IMAGO DOES / 01</span>
+    <p>One partner. Three connected disciplines.</p>
+   </div>
+   <div className="nh-pillar-grid">
+    {pillars.map((p) => (
+     <article className="nh-pillar" key={p.n}>
+      <span className="nh-number">{p.n}</span>
+      <span className="nh-pillar-tag">{p.tag}</span>
+      <h3>{p.name}</h3>
+      <p>{p.text}</p>
+      <span className="nh-pillar-arrow">↗</span>
+     </article>
+    ))}
+   </div>
+  </div>
+ </section>
 <section className="nh-system" id="approach"><div className="container"><div className="nh-system-head"><span className="nh-label">THE GROWTH LOOP / 02</span><h2>From first glance<br/>to <em>next step.</em></h2><p>Every campaign should have a job. Here's the simple system behind the work—and how we keep making it better.</p></div><div className="nh-journey">{journey.map((j,i)=><article className="nh-journey-step" key={j[0]}><span>{j[0]}</span><h3>{j[1]}</h3><p>{j[2]}</p>{i<journey.length-1&&<b aria-hidden="true">→</b>}</article>)}</div><div className="nh-loop-note"><span>↻</span><p><strong>Then we learn and repeat.</strong> Lead quality and campaign signals shape the next round of strategy, creative and spend.</p></div><div className="nh-path"><span>ORGANIC SOCIAL</span><i>+</i><span>PAID MEDIA</span><i>→</i><span className="nh-path-result">QUALIFIED DEMAND</span></div></div></section>
 <section className="nh-fit"><div className="container nh-fit-grid"><span className="nh-label">A GOOD FIT / 03</span><div><h2>For teams ready<br/>to <em>grow with intent.</em></h2><p>Imago works best with businesses that have a real offer, a clear ambition and the willingness to learn from the market. We bring the marketing system; your team brings the product expertise and closes the conversations.</p><div className="nh-fit-list"><span>✓ Clear offer or service</span><span>✓ Growth-minded team</span><span>✓ Ready to measure outcomes</span></div></div></div></section>
 <section className="nh-trust"><div className="container nh-trust-grid"><span className="nh-label">HOW WE MEASURE / 04</span><div><h2>Clarity over<br/><em>vanity metrics.</em></h2><p>We look beyond likes and impressions: qualified inquiries, cost per lead, booked conversations and pipeline—where tracking is available. We don't publish made-up case studies or promise guaranteed results.</p><Link className="nh-link" href="/dashboard">See the sample Growth OS ↗</Link></div><div className="nh-metric-card"><span>THE SCORECARD</span>{["Reach","Engagement","Qualified leads","Booked calls","Pipeline"].map((m,i)=><div key={m}><b>0{i+1}</b><strong>{m}</strong><span>TRACK · LEARN · IMPROVE</span></div>)}<small>Framework preview · not client data</small></div></div></section>
