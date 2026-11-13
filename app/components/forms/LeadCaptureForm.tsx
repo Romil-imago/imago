@@ -35,7 +35,7 @@ export function LeadCaptureForm({ leadType, heading }: { leadType: LeadType; hea
         <label>Start timeline<select name="timeline" defaultValue="Within 30 Days"><option>Immediately</option><option>Within 30 Days</option><option>Within 3 Months</option><option>Just researching</option></select></label>
         <label>US ZIP code<input name="zipCode" inputMode="numeric" maxLength={12} placeholder="78701" /></label>
       </> : <>
-        <label>Trade<select name="trade" defaultValue="Roofing"><option>Roofing</option><option>Kitchen & Bath</option><option>HVAC</option><option>Other</option></select></label>
+        <label>Trade<select name="trade" defaultValue="Roofing"><option>Roofing</option><option>Kitchen & Bath</option><option>HVAC</option><option>Plumbing</option><option>Electrical</option><option>Windows & Doors</option><option>Siding</option><option>Gutters</option><option>Solar</option><option>Insulation</option><option>Painting</option><option>Flooring</option><option>Landscaping</option><option>General Contractor</option><option>Home Remodeling</option><option>Restoration</option><option>Concrete & Foundation</option><option>Garage Doors</option><option>Pool & Outdoor Living</option><option>Pest Control</option><option>Other</option></select></label>
         <label>Monthly growth budget<select name="scope" defaultValue="Not sure yet"><option>Under $2,500</option><option>$2,500–$5,000</option><option>$5,000–$10,000</option><option>$10,000+</option><option>Not sure yet</option></select></label>
       </>}
     </div>
