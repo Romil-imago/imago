@@ -61,7 +61,7 @@ export async function POST(request: Request) {
   if (!privacyConsent) return NextResponse.json({ ok: false, error: "Please acknowledge the privacy notice to submit." }, { status: 400 });
   const createdAt = new Date().toISOString(), id = crypto.randomUUID();
   const lead = {
-    id, leadType, leadScore: calculateLeadScore({ leadType, timeline, phone, email, trade, service, company }),
+    id, leadType, leadScore: calculateLeadScore({ leadType, timeline, phone, email, trade, service, company, scope }),
     name, email: email || null, phone: phone || null, city, company: company || null, service,
     scope, timeline, zipCode: zipCode || null, trade: trade || null, privacyConsent, smsConsent, createdAt
   };
