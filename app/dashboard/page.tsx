@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteHeader } from "@/app/components/SiteHeader";
+import { LeadEconomicsCalculator } from "@/app/components/calculators/LeadEconomicsCalculator";
 export const metadata: Metadata = { title: "Demo operations dashboard", robots: { index: false, follow: false } };
 const metrics = [{ label: "New leads", value: "24", delta: "+12% vs last period" }, { label: "Qualified", value: "16", delta: "66.7% qualification rate" }, { label: "Appointments", value: "9", delta: "Demo data — not connected" }, { label: "Pipeline value", value: "$18.4k", delta: "Illustrative only" }];
 const funnel = [{ label: "Captured", value: 24, width: "100%" }, { label: "Qualified", value: 16, width: "67%" }, { label: "Contacted", value: 12, width: "50%" }, { label: "Booked", value: 9, width: "38%" }];
@@ -21,6 +22,7 @@ export default function DashboardPage() {
     <section className="dashboard-card work-card"><div className="card-heading"><div><p className="eyebrow">03 / WORK QUEUE</p><h2>Next actions</h2></div><span>Illustrative backlog</span></div>
       <div className="task-list">{tasks.map(t => <div className="task-row" key={t.id}><span className="task-number">{t.id}</span><p><strong>{t.title}</strong><small>{t.owner}</small></p><span className="task-status">{t.status}</span></div>)}</div>
     </section>
+    <div className="calculator-wrap"><LeadEconomicsCalculator /></div>
     <div className="dashboard-actions"><Link href="/growth">Capture an agency prospect ↗</Link><Link href="/demo/remodeling-quote">Preview client funnel ↗</Link><Link href="/api/health">View API health ↗</Link><Link href="/privacy">Privacy notice ↗</Link></div>
   </div></main></>;
 }
