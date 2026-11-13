@@ -1,28 +1,25 @@
 "use client";
 import Link from "next/link";
 import {useEffect,useState} from "react";
-const channels=["INSTAGRAM","TIKTOK","YOUTUBE","LINKEDIN"];
-function Frame({label,kind,headline,meta}:{label:string;kind:string;headline:string;meta:string}){return <article className={"social-frame "+kind}><div className="frame-top"><span>● IMAGO / {label}</span><span>↗</span></div><div className="frame-art"><div className="frame-orbit"/><div className="frame-type">{headline}</div><span className="frame-caption">{meta}</span><span className="frame-sticker">PLAY<br/>WITH IT ↗</span></div><div className="frame-bottom"><span>CREATIVE TEST / 00{label}</span><span>9:16 ▣</span></div></article>}
-export default function HomePage(){const[menu,setMenu]=useState(false),[word,setWord]=useState(0);useEffect(()=>{const t=setInterval(()=>setWord(x=>(x+1)%3),1700);return()=>clearInterval(t)},[]);return <main className="imago-new">
-<header className="new-nav"><Link href="/" className="new-brand">imago<span>®</span></Link><div className="nav-channels">{channels.map(x=><span key={x}>{x}</span>)}</div><button onClick={()=>setMenu(!menu)}>{menu?"CLOSE ×":"LET’S TALK ↗"}</button></header>
-{menu&&<nav className="new-menu"><Link href="/services">WHAT WE DO ↗</Link><Link href="/work">THE PLAYGROUND ↗</Link><Link href="/growth">START A BRIEF ↗</Link><a href="mailto:inquiries.imago@gmail.com">SAY HELLO ↗</a></nav>}
-<section className="new-hero">
-<div className="hero-micro"><span>INDEPENDENT SOCIAL CREATIVE STUDIO</span><span>AHMEDABAD ↔ EVERYWHERE / 2026</span></div>
-<div className="hero-stage">
-<div className="hero-side-note">YOUR BRAND<br/>CALLED. IT WANTS<br/>BETTER CONTENT.</div>
-<h1>MAKE<br/><span className="hero-swap">{["SCROLL","STOP","TALK"][word]}</span><br/><em>HAPPEN.</em></h1>
-<div className="hero-reel">
-<div className="hero-reel-screen"><span>IMAGO ORIGINALS / 001</span><b>NOT ANOTHER POST.</b><div className="reel-ball"></div></div>
-<div className="reel-ui"><span>♡ 12.8K</span><span>↗ SHARE</span><span>•••</span></div>
-<div className="hero-reel-label">A SOCIAL-FIRST CREATIVE PRACTICE <b>↗</b></div>
-</div>
-</div>
-<div className="hero-bottom"><p>We make brands <strong>impossible to ignore</strong> in the places culture actually happens. Strategy with a pulse. Content with a point of view.</p><Link href="/work">ENTER THE PLAYGROUND <b>↓</b></Link></div>
-<div className="hero-index">01 / 05</div>
-</section>
-<div className="new-marquee"><div>{Array.from({length:5},(_,i)=><span key={i}>CULTURE IS THE BRIEF <b>✳</b> MAKE IT MEMORABLE <b>✳</b> LESS CONTENT. MORE IMPACT. <b>✳</b></span>)}</div></div>
-<section className="new-manifesto"><div className="new-label">02 / THE FEED IS A CULTURAL SPACE</div><h2>Attention is easy.<br/><em>Being remembered<br/>is the work.</em></h2><div className="manifesto-aside"><span>WE MAKE THE SECOND PART COUNT.</span><p>Every scroll is a choice. We help brands earn the pause, start the conversation, and build a place in people’s everyday lives.</p></div><div className="manifesto-orbit">SOCIAL<br/>≠<br/>POSTING</div></section>
-<section className="new-services"><div className="new-section-top"><div className="new-label">03 / THE SOCIAL STACK</div><h2>Built for platforms.<br/><em>Made for people.</em></h2><p>Four connected disciplines. One culture-aware creative engine.</p></div><div className="stack-grid"><Link href="/services" className="stack-card stack-a"><span>01 / STRATEGY</span><div className="stack-graphic"><i/><i/><i/><b>FIND<br/>YOUR<br/>ANGLE.</b></div><h3>Know what<br/>to say—and<br/>why it matters.</h3><small>POSITIONING / SOCIAL DNA ↗</small></Link><Link href="/services" className="stack-card stack-b"><span>02 / CONTENT</span><div className="stack-graphic"><b>POST<br/>THAT<br/><em>HITS.</em></b><i/></div><h3>Make the<br/>group chat<br/>talk.</h3><small>REELS / DESIGN / PRODUCTION ↗</small></Link><Link href="/services" className="stack-card stack-c"><span>03 / COMMUNITY</span><div className="stack-graphic"><b>YOU<br/>+ THEM<br/>= US.</b><i/><i/></div><h3>Turn views<br/>into people<br/>who care.</h3><small>VOICE / CULTURE / CARE ↗</small></Link><Link href="/services" className="stack-card stack-d"><span>04 / PERFORMANCE</span><div className="stack-graphic"><b>MAKE<br/>IT MOVE<br/><em>↑</em></b><i/></div><h3>Creative that<br/>earns its<br/>keep.</h3><small>PAID SOCIAL / TEST / SCALE ↗</small></Link></div></section>
-<section className="new-feed"><div className="feed-head"><div><span className="new-label">04 / MADE TO LIVE IN THE FEED</span><h2>Not mockups.<br/><em>Playful possibilities.</em></h2></div><Link href="/work">SEE THE CONCEPT ARCHIVE ↗</Link></div><div className="feed-frames"><Frame label="001" kind="frame-pink" headline="MAIN CHARACTER ENERGY." meta="A BRAND WITH A POINT OF VIEW"/><Frame label="002" kind="frame-lime" headline="THE PLOT TWIST." meta="FORMAT / CULTURE / REPEAT"/><Frame label="003" kind="frame-blue" headline="WAIT— WATCH THIS." meta="MOTION IS A LANGUAGE"/></div><p className="feed-disclaimer">SELF-INITIATED CREATIVE STUDIES · NOT CLIENT WORK OR PERFORMANCE CLAIMS</p></section>
-<section className="new-loop"><div className="new-label">05 / NEVER POST & PRAY</div><div className="loop-wheel">LISTEN <b>↻</b> MAKE <b>↻</b> LEARN <b>↻</b> REPEAT <b>↻</b></div><h2>Culture moves.<br/><em>We move with it.</em></h2><p>We observe the internet, build ideas worth sharing, and keep learning from what people do—not just what dashboards say.</p><Link href="/services">HOW WE WORK ↗</Link></section>
-<section className="new-end"><span>YOUR BRAND HAS ENTERED THE CHAT.</span><h2>LET’S MAKE<br/><em>SOME NOISE.</em></h2><Link href="/growth">START A CONVERSATION ↗</Link><footer><Link href="/" className="new-brand">imago®</Link><span>STRATEGY / CONTENT / COMMUNITY / GROWTH</span><span>© IMAGO 2026</span></footer></section></main>}
+
+const words=["UNIGNORABLE.","UNEXPECTED.","UNMISTAKABLE."];
+const projects=[
+ {id:"01",name:"LOUDER THAN LOGO",type:"SOCIAL CAMPAIGN",tone:"pink",line:"A little less polished. A lot more personality."},
+ {id:"02",name:"THE DAILY REMIX",type:"CONTENT SYSTEM",tone:"blue",line:"Built for the scroll. Made for the real world."},
+ {id:"03",name:"GOOD MOOD CLUB",type:"BRAND WORLD",tone:"cream",line:"A universe people want to belong to."}
+];
+export default function Home(){
+ const [word,setWord]=useState(0),[menu,setMenu]=useState(false);
+ useEffect(()=>{const t=setInterval(()=>setWord(v=>(v+1)%words.length),1900);return()=>clearInterval(t)},[]);
+ return <main className="fresh">
+ <header className="fresh-nav"><Link href="/" className="fresh-logo">imago<span>✳</span></Link><span className="fresh-nav-note">INDEPENDENT SOCIAL CREATIVE STUDIO · INDIA / EVERYWHERE</span><button onClick={()=>setMenu(!menu)}>{menu?"CLOSE −":"MENU +"}</button></header>
+ {menu&&<nav className="fresh-menu"><Link href="/work">WORK ↗</Link><Link href="/services">WHAT WE DO ↗</Link><Link href="/growth">LET’S TALK ↗</Link></nav>}
+ <section className="fresh-hero"><div className="fresh-kicker"><span>WE MAKE BRANDS FEEL LIKE SOMETHING.</span><span>SCROLL TO GET INTO IT ↓</span></div><div className="fresh-hero-art" aria-hidden="true"><div className="fresh-sun"/><div className="fresh-orbit orbit-one"/><div className="fresh-orbit orbit-two"/><span className="fresh-stamp">SOCIAL<br/>IS THE<br/>STAGE</span><span className="fresh-side">STRATEGY × CULTURE × CREATIVE</span></div><h1>MAKE IT<br/><i>{words[word]}</i></h1><div className="fresh-hero-foot"><p>We turn sharp thinking into social-first creative people <b>stop for, share, and remember.</b></p><Link href="/work">SEE WHAT WE MAKE <span>↘</span></Link></div><div className="fresh-scroll">01 — THE INTRO</div></section>
+ <div className="fresh-ticker"><div>IDEAS WITH A PULSE ✳ CONTENT WITH A POINT OF VIEW ✳ CULTURE, NOT CONTENT CALENDARS ✳ IDEAS WITH A PULSE ✳ CONTENT WITH A POINT OF VIEW ✳</div></div>
+ <section className="fresh-statement"><span className="fresh-label">02 / THE REASON WE EXIST</span><h2>The internet doesn’t<br/>need <em>more posts.</em><br/>It needs <span>more feeling.</span></h2><p>We find the interesting bit hiding in your brand—and turn it into work with a voice, a visual world, and a reason to exist in someone’s feed.</p><div className="fresh-scribble">MAKE<br/>SOME<br/>MEANING.</div></section>
+ <section className="fresh-work"><div className="fresh-section-head"><span className="fresh-label">03 / LITTLE WORLDS, BIG ENERGY</span><Link href="/work">THE WORK INDEX ↗</Link></div><div className="fresh-projects">{projects.map(p=><Link href="/work" className={"fresh-project "+p.tone} key={p.id}><div className="fresh-project-art"><span>{p.id} / IMAGO STUDY</span><b>{p.name.split(" ").map((x,i)=><ReactWord key={i} word={x}/>)}</b><i className="fresh-project-shape"/></div><div className="fresh-project-caption"><span>{p.type}</span><p>{p.line}</p><b>↗</b></div></Link>)}</div><small className="fresh-disclaimer">ORIGINAL SELF-INITIATED CREATIVE STUDIES · NOT CLIENT COMMISSIONS</small></section>
+ <section className="fresh-practice"><span className="fresh-label">04 / OUR PRACTICE</span><h2>Think sharp.<br/><em>Make strange.</em><br/>Make it matter.</h2><div className="fresh-practice-list"><Link href="/services"><span>01</span><b>STRATEGY & SOCIAL DNA</b><i>↗</i></Link><Link href="/services"><span>02</span><b>CONTENT & CAMPAIGNS</b><i>↗</i></Link><Link href="/services"><span>03</span><b>COMMUNITY & CULTURE</b><i>↗</i></Link><Link href="/services"><span>04</span><b>CREATIVE PERFORMANCE</b><i>↗</i></Link></div></section>
+ <section className="fresh-cta"><span>05 / YOUR MOVE</span><h2>GOT A BRAND?<br/><em>LET’S MAKE<br/>IT FEEL ALIVE.</em></h2><Link href="/growth">START A CONVERSATION ↗</Link><footer><Link href="/">imago✳</Link><span>STRATEGY · SOCIAL · CREATIVE</span><span>© 2026</span></footer></section>
+ </main>
+}
+function ReactWord({word}:{word:string}){return <span>{word} </span>}
