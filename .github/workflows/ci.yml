@@ -15,6 +15,19 @@ jobs:
         with:
           node-version: 22
       - run: npm install
+      - name: Report dependency audit
+        run: |
+          npm audit --json > audit.json || true
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const audit = JSON.parse(fs.readFileSync('audit.json', 'utf8'));
+          console.log(JSON.stringify({
+            summary: audit.metadata?.vulnerabilities ?? null,
+            packages: Object.entries(audit.vulnerabilities ?? {}).map(([name, item]) => ({
+              name, severity: item.severity, range: item.range, fixAvailable: item.fixAvailable
+            }))
+          }, null, 2));
+          NODE
       - run: npm run typecheck
       - run: npm run lint
       - run: npm run build
