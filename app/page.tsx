@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, type CSSProperties } from "react";
+import { useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from "react";
 
 const lenses = {
   brand: {
@@ -52,7 +52,7 @@ export default function HomePage() {
     "--pointer-y": pointer.y + "%"
   } as CSSProperties;
 
-  function moveArt(event: React.PointerEvent<HTMLElement>) {
+  function moveArt(event: ReactPointerEvent<HTMLElement>) {
     if (event.pointerType === "touch") return;
     const bounds = event.currentTarget.getBoundingClientRect();
     setPointer({
