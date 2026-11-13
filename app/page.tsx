@@ -16,6 +16,7 @@ export default function HomePage(){const[menu,setMenu]=useState(false),[word,set
 <div className="reel-ui"><span>♡ 12.8K</span><span>↗ SHARE</span><span>•••</span></div>
 <div className="hero-reel-label">A SOCIAL-FIRST CREATIVE PRACTICE <b>↗</b></div>
 </div>
+</div>
 <div className="hero-bottom"><p>We make brands <strong>impossible to ignore</strong> in the places culture actually happens. Strategy with a pulse. Content with a point of view.</p><Link href="/work">ENTER THE PLAYGROUND <b>↓</b></Link></div>
 <div className="hero-index">01 / 05</div>
 </section>
