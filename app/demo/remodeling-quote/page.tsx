@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "@/app/components/SiteHeader";
-import { LeadCaptureForm } from "@/app/components/LeadCaptureForm";
+import { LeadCaptureForm } from "@/app/components/forms/LeadCaptureForm";
 export const metadata: Metadata = { title: "Remodeling quote demo" };
 export default function RemodelingQuoteDemoPage() {
   return <><SiteHeader /><main className="form-page"><div className="container form-page-grid">
