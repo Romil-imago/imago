@@ -9,6 +9,7 @@ export function SiteHeader() {
     <nav className={`main-nav${open ? " nav-open" : ""}`} aria-label="Main navigation">
       <Link onClick={() => setOpen(false)} href="/#services">What we do</Link>
       <Link onClick={() => setOpen(false)} href="/#approach">Our method</Link>
+      <Link onClick={() => setOpen(false)} href="/work">Work</Link>
       <Link onClick={() => setOpen(false)} href="/dashboard">Growth OS</Link>
     </nav>
     <Link className="button button-dark button-small nav-cta" href="/growth">Get a growth audit <span>↗</span></Link>
