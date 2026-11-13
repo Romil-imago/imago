@@ -1,131 +1,29 @@
 import Link from "next/link";
 import { SiteHeader } from "@/app/components/SiteHeader";
 
-const pillars = [
-  {n:"01",name:"Strategy",tag:"Find the signal",text:"Audience research, positioning and offers that give the right people a reason to care."},
-  {n:"02",name:"Creative",tag:"Earn attention",text:"Social-first content and ad creative built around real customer motivations—not trends for trends' sake."},
-  {n:"03",name:"Performance",tag:"Turn it into action",text:"Paid distribution, landing pages and lead capture designed to move interested people forward."}
+const platforms = [
+ ["IG","Instagram","Organic + paid"],
+ ["f","Facebook","Local reach + leads"],
+ ["♪","TikTok","Short-form discovery"],
+ ["in","LinkedIn","B2B authority"],
+ ["▶","YouTube","Video + retargeting"],
+ ["✉","Email","Nurture + follow-up"]
 ];
-const journey = [
-  ["01","Understand","Your audience, offer and growth constraints."],
-  ["02","Create","A clear message and creative worth stopping for."],
-  ["03","Activate","Organic + paid distribution to reach the right people."],
-  ["04","Convert","A focused path from click to qualified inquiry."],
-  ["05","Improve","Learn from lead quality and campaign signals."]
+const trades = ["Roofing","Kitchen & Bath","HVAC","Plumbing","Electrical","Windows & Doors","Siding","Gutters","Solar","Insulation","Painting","Flooring","Landscaping","General Contractor","Home Remodeling","Restoration","Concrete & Foundation","Garage Doors","Pool & Outdoor Living","Pest Control","Other"];
+const services = [
+ ["01","Social media management","A consistent brand voice, sharp content and a calendar that earns attention."],
+ ["02","Paid social campaigns","Meta, TikTok and LinkedIn campaigns built around leads—not empty reach."],
+ ["03","Creative production","Reels, short-form video, carousels, ads and campaign concepts."],
+ ["04","Lead generation","Landing pages, forms, CRM routing and follow-up that turn clicks into conversations."],
+ ["05","Strategy & reporting","Clear goals, channel plans and reporting tied to business outcomes."]
 ];
-export default function HomePage(){return <><SiteHeader/><main className="new-home">
- <section className="nh-hero">
-  <div className="container nh-hero-inner">
-   <div className="nh-kicker"><span /> INDEPENDENT GROWTH PARTNER <span className="nh-kicker-right">IMAGO / 2026</span></div>
-   <div className="nh-hero-main">
-    <div className="nh-hero-copy">
-     <h1>Make your<br/>marketing <em>mean</em><br/>something.</h1>
-     <p className="nh-lede">We help ambitious businesses turn social media into attention, demand and qualified leads—with strategy, creative and performance working together.</p>
-     <div className="nh-actions">
-      <Link className="button button-dark" href="/growth">Get a growth audit</Link>
-      <a className="nh-link" href="#approach">See how we work ↓</a>
-     </div>
-    </div>
-    <div className="nh-art" aria-label="Abstract Imago brand artwork">
-     <div className="nh-art-ring ring-one" />
-     <div className="nh-art-ring ring-two" />
-     <div className="nh-art-core"><span>IM</span></div>
-     <span className="nh-art-label">ATTENTION<br/>→ ACTION</span>
-    </div>
-   </div>
-   <div className="nh-hero-foot"><span>STRATEGY · CREATIVE · PERFORMANCE</span><span>BUILT FOR BUSINESS, NOT BUSYWORK.</span></div>
-  </div>
- </section>
-<section className="nh-manifesto"><div className="container nh-manifesto-grid"><span className="nh-label">THE PROBLEM</span><h2>More content isn't the answer.<br/><em>A better system is.</em></h2><p>Posting consistently is not a growth strategy by itself. Your message, creative, distribution and conversion experience need to work as one—so attention has somewhere useful to go.</p></div></section>
- <section className="nh-pillars" id="services">
-  <div className="container">
-   <div className="nh-section-top">
-    <span className="nh-label">WHAT IMAGO DOES / 01</span>
-    <p>One partner. Three connected disciplines.</p>
-   </div>
-   <div className="nh-pillar-grid">
-    {pillars.map((p) => (
-     <article className="nh-pillar" key={p.n}>
-      <span className="nh-number">{p.n}</span>
-      <span className="nh-pillar-tag">{p.tag}</span>
-      <h3>{p.name}</h3>
-      <p>{p.text}</p>
-      <span className="nh-pillar-arrow">↗</span>
-     </article>
-    ))}
-   </div>
-   <div className="nh-service-more"><Link className="nh-link" href="/services">Explore services & engagement options ↗</Link></div>
-  </div>
- </section>
- <section className="nh-system" id="approach">
-  <div className="container">
-   <div className="nh-system-head">
-    <span className="nh-label">THE GROWTH LOOP / 02</span>
-    <h2>From first glance<br/>to <em>next step.</em></h2>
-    <p>Every campaign should have a job. Here's the simple system behind the work—and how we keep making it better.</p>
-   </div>
-   <div className="nh-journey">
-    {journey.map((j, i) => (
-     <article className="nh-journey-step" key={j[0]}>
-      <span>{j[0]}</span><h3>{j[1]}</h3><p>{j[2]}</p>
-      {i < journey.length - 1 && <b aria-hidden="true">→</b>}
-     </article>
-    ))}
-   </div>
-   <div className="nh-loop-note"><span>↻</span><p><strong>Then we learn and repeat.</strong> Lead quality and campaign signals shape the next round of strategy, creative and spend.</p></div>
-   <div className="nh-path"><span>ORGANIC SOCIAL</span><i>+</i><span>PAID MEDIA</span><i>→</i><span className="nh-path-result">QUALIFIED DEMAND</span></div>
-  </div>
- </section>
- <section className="nh-work" id="work">
-  <div className="container">
-   <div className="nh-work-head"><span className="nh-label">CREATIVE IN ACTION / 03</span><div><h2>Ideas that earn<br/><em>the pause.</em></h2><p>Explore the thinking behind a few campaign directions. These are concept explorations—not client work—and show how Imago approaches attention, story and action.</p><Link className="nh-link" href="/work">Explore the concept lab ↗</Link></div></div>
-   <div className="nh-work-preview">
-    <Link className="nh-work-tile work-warm" href="/work"><span>01 / HOSPITALITY</span><strong>STAY A<br/>LITTLE LONGER.</strong><small>FEELING → BOOKING</small></Link>
-    <Link className="nh-work-tile work-blue" href="/work"><span>02 / B2B & SAAS</span><strong>LESS<br/>FRICTION.</strong><small>CLARITY → TRUST</small></Link>
-    <Link className="nh-work-tile work-lime" href="/work"><span>03 / WELLNESS</span><strong>FEEL THE<br/>SHIFT.</strong><small>RITUAL → RETURN</small></Link>
-   </div>
-   <span className="nh-work-note">SPECULATIVE CREATIVE DIRECTIONS · NOT CLIENT CAMPAIGNS OR RESULTS</span>
-  </div>
- </section>
- <section className="nh-fit">
-  <div className="container nh-fit-grid">
-   <span className="nh-label">A GOOD FIT / 03</span>
-   <div>
-    <h2>For teams ready<br/>to <em>grow with intent.</em></h2>
-    <p>Imago works best with businesses that have a real offer, a clear ambition and the willingness to learn from the market. We bring the marketing system; your team brings the product expertise and closes the conversations.</p>
-    <div className="nh-fit-list"><span>✓ Clear offer or service</span><span>✓ Growth-minded team</span><span>✓ Ready to measure outcomes</span></div>
-   </div>
-  </div>
- </section>
- <section className="nh-trust">
-  <div className="container nh-trust-grid">
-   <span className="nh-label">HOW WE MEASURE / 04</span>
-   <div>
-    <h2>Clarity over<br/><em>vanity metrics.</em></h2>
-    <p>We look beyond likes and impressions: qualified inquiries, cost per lead, booked conversations and pipeline—where tracking is available. We don't publish made-up case studies or promise guaranteed results.</p>
-    <Link className="nh-link" href="/dashboard">See the sample Growth OS ↗</Link>
-   </div>
-   <div className="nh-metric-card">
-    <span>THE SCORECARD</span>
-    {["Reach","Engagement","Qualified leads","Booked calls","Pipeline"].map((m, i) => (
-     <div key={m}><b>0{i+1}</b><strong>{m}</strong><span>TRACK · LEARN · IMPROVE</span></div>
-    ))}
-    <small>Framework preview · not client data</small>
-   </div>
-  </div>
- </section>
- <section className="nh-cta">
-  <div className="container nh-cta-inner">
-   <span className="nh-label">YOUR NEXT MOVE / 05</span>
-   <h2>Let's find your<br/><em>growth gap.</em></h2>
-   <div><p>Tell us where you want to go. We'll start with the opportunity, not a sales script.</p><Link className="button button-lime" href="/growth">Start with a growth audit ↗</Link></div>
-  </div>
- </section>
- </main>
- <footer className="site-footer">
-  <div className="container footer-inner">
-   <Link className="wordmark" href="/"><span className="wordmark-mark"/>imago<span className="wordmark-period">.</span></Link>
-   <span>BUILD WITH INTENT.</span><Link href="/dashboard">Growth OS ↗</Link><span>© {new Date().getFullYear()} Imago Studio</span>
-  </div>
- </footer>
- </>}
+export default function HomePage(){return <><SiteHeader/><main className="agency-home">
+<section className="agency-hero"><div className="container agency-hero-grid"><div className="agency-hero-copy"><span className="agency-eyebrow"><i/> SOCIAL-FIRST GROWTH AGENCY <b>IMAGO / 2026</b></span><h1>Scroll-stopping<br/>creative.<br/><em>Real-world</em><br/>growth.</h1><p>We make brands impossible to ignore—and make every campaign work harder for the business behind it.</p><div className="agency-actions"><Link className="agency-btn agency-btn-light" href="/growth">Let’s grow your business ↗</Link><Link className="agency-textlink" href="#services">See what we do ↓</Link></div><div className="agency-hero-meta"><span>STRATEGY · SOCIAL · PERFORMANCE</span><span>BUILT TO MOVE PEOPLE.</span></div></div><div className="agency-hero-art" aria-label="Social media campaign creative collage"><div className="agency-orbit agency-orbit-a"/><div className="agency-orbit agency-orbit-b"/><div className="agency-art-card art-card-one"><small>IMAGO / CREATIVE</small><strong>MAKE<br/>THEM<br/><em>LOOK.</em></strong><span>CAMPAIGN 001</span></div><div className="agency-art-card art-card-two"><span className="art-play">▶</span><b>REEL<br/>READY.</b><small>9:16 / SOCIAL FILM</small></div><div className="agency-art-sticker">ATTENTION<br/>IS CURRENCY ↗</div></div></div></section>
+<section className="agency-platform-strip"><div className="container"><span className="agency-label">WHERE YOUR AUDIENCE LIVES</span><div className="agency-platforms">{platforms.map(p=><div key={p[1]}><b>{p[0]}</b><span><strong>{p[1]}</strong><small>{p[2]}</small></span></div>)}</div></div></section>
+<section className="agency-intro"><div className="container agency-intro-grid"><span className="agency-label">THE IMAGO DIFFERENCE / 01</span><h2>Not just posts.<br/><em>A brand people remember.</em></h2><p>We connect strategy, content, paid media and lead capture into one clear growth engine. So your social presence looks better, works smarter and has a job beyond getting likes.</p></div></section>
+<section className="agency-services" id="services"><div className="container"><div className="agency-section-head"><span className="agency-label">WHAT WE DO / 02</span><div><h2>Make every<br/><em>move matter.</em></h2><p>From the first idea to the follow-up after a click—we build the pieces that make marketing work.</p></div></div><div className="agency-service-list">{services.map(s=><article key={s[0]}><span>{s[0]}</span><div><h3>{s[1]}</h3><p>{s[2]}</p></div><b>↗</b></article>)}</div></div></section>
+<section className="agency-trades" id="industries"><div className="container"><div className="agency-section-head"><span className="agency-label">BUILT FOR THE TRADES / 03</span><div><h2>Local service.<br/><em>Big ambition.</em></h2><p>We help home-service and contractor businesses turn local attention into booked estimates and better jobs.</p></div></div><div className="agency-trade-grid">{trades.map((t,i)=><Link key={t} href="/growth"><span>{String(i+1).padStart(2,"0")}</span><strong>{t}</strong><b>↗</b></Link>)}</div><p className="agency-trade-note">Don't see your niche? Choose Other in the inquiry form—we work across service categories.</p></div></section>
+<section className="agency-method"><div className="container"><span className="agency-label">THE PLAYBOOK / 04</span><h2>From <em>scroll</em><br/>to sold.</h2><div className="agency-method-grid">{[["01","Position","Get clear on the offer, audience and reason to choose you."],["02","Create","Make thumb-stopping creative with a message worth remembering."],["03","Distribute","Use organic and paid social to reach the right people."],["04","Convert","Turn attention into inquiries with a clear next step."],["05","Optimize","Learn from lead quality, booked calls and campaign data."]].map(s=><article key={s[0]}><span>{s[0]}</span><h3>{s[1]}</h3><p>{s[2]}</p></article>)}</div></div></section>
+<section className="agency-work"><div className="container agency-work-grid"><div><span className="agency-label">CREATIVE / 05</span><h2>Make the<br/>feed feel<br/><em>different.</em></h2><p>We bring the ideas, visuals and campaign thinking to make your brand stand out in a crowded feed.</p><Link className="agency-textlink" href="/work">Explore concept directions ↗</Link><small>Concept explorations—not client campaigns or results.</small></div><div className="agency-work-art"><div><span>01 / SOCIAL FILM</span><strong>THE<br/>NEXT<br/><em>BIG THING.</em></strong><b>IMAGO STUDIO ↗</b></div><div><span>02 / PAID CREATIVE</span><strong>STOP<br/>THE<br/>SCROLL.</strong><b>CAMPAIGN SYSTEM</b></div></div></div></section>
+<section className="agency-cta"><div className="container agency-cta-grid"><span className="agency-label">YOUR NEXT MOVE / 06</span><div><h2>Ready to make<br/><em>some noise?</em></h2><p>Tell us what you do and where you want to grow. We'll map a practical next move.</p><Link className="agency-btn agency-btn-lime" href="/growth">Start a conversation ↗</Link></div></div></section>
+</main><footer className="site-footer agency-footer"><div className="container footer-inner"><Link className="wordmark" href="/"><span className="wordmark-mark"/>imago<span className="wordmark-period">.</span></Link><span>MAKE SOME NOISE.</span><Link href="/services">Services ↗</Link><Link href="/work">Work ↗</Link><span>© {new Date().getFullYear()} Imago Studio</span></div></footer></>}
