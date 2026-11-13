@@ -1,14 +1,6 @@
-import type { Metadata } from "next";
+import type {Metadata} from "next";
 import Link from "next/link";
-import { SiteHeader } from "@/app/components/SiteHeader";
-import { LeadCaptureForm } from "@/app/components/forms/LeadCaptureForm";
-export const metadata: Metadata = { title: "Growth audit" };
-export default function GrowthPage() {
-  return <><SiteHeader /><main className="form-page"><div className="container form-page-grid">
-    <section className="form-intro"><p className="eyebrow"><span className="eyebrow-dot" /> IMAGO / GROWTH AUDIT</p><h1>Let&apos;s make<br /><em>growth work.</em></h1>
-      <p>Share a little about your business. We’ll use it to understand your goals, current acquisition motion and where a better system could help.</p>
-      <div className="process-list"><div><span>01</span><p><strong>Understand</strong> — your market, offer and current funnel.</p></div><div><span>02</span><p><strong>Identify</strong> — friction, missed opportunities and priorities.</p></div><div><span>03</span><p><strong>Recommend</strong> — a practical next step, grounded in your goals.</p></div></div>
-      <Link className="back-link" href="/">← Back to Imago</Link>
-    </section><section className="form-panel"><LeadCaptureForm leadType="agency_prospect" heading="Tell us about your business" /></section>
-  </div></main></>;
-}
+import {SiteHeader} from "@/app/components/SiteHeader";
+import {LeadCaptureForm} from "@/app/components/forms/LeadCaptureForm";
+export const metadata:Metadata={title:"Start a project"};
+export default function GrowthPage(){return <><SiteHeader/><main className="gr-page"><section className="gr-intro"><div className="gr-index">IMAGO / PROJECT INTAKE<br/>FORM 001 — 2026</div><div className="gr-orbit"><i/><i/><i/><b>?</b></div><div className="gr-intro-copy"><span>THE FIRST STEP IS A GOOD QUESTION.</span><h1>What are you<br/><em>trying to change?</em></h1><p>Tell us what you are building, where it feels stuck, or what could be possible. We’ll use this to understand the opportunity before suggesting a scope.</p><div className="gr-steps"><span><b>01</b> CONTEXT</span><i>→</i><span><b>02</b> FRICTION</span><i>→</i><span><b>03</b> DIRECTION</span></div></div><div className="gr-contact-note">NO PACKAGES.<br/>NO PRESSURE.<br/>A USEFUL FIRST<br/>CONVERSATION.</div></section><section className="gr-form-zone"><div className="gr-form-side"><span>02 / YOUR BRIEF</span><h2>Leave us<br/>a <em>signal.</em></h2><p>We don’t need a perfect brief. A little context is enough to start a meaningful conversation.</p><Link href="/services">NOT SURE WHAT WE DO? EXPLORE THE PRACTICE ↗</Link><div className="gr-form-orb"/></div><div className="gr-form-card"><LeadCaptureForm leadType="agency_prospect" heading="Tell us about the idea" /></div></section><footer className="gr-footer"><Link href="/">IMAGO®</Link><span>INQUIRIES.IMAGO@GMAIL.COM</span><span>© IMAGO 2026</span></footer></main></>}
