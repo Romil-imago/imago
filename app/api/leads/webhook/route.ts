@@ -17,10 +17,30 @@ async function forwardToGhl(payload: Record<string, unknown>): Promise<"sent" | 
   } catch { return "failed"; }
 }
 export async function POST(request: Request) {
-  const length = Number(request.headers.get("content-length") || 0);
-  if (length > 12000) return NextResponse.json({ ok: false, error: "Request is too large." }, { status: 413 });
+  const declaredLength = Number(request.headers.get("content-length") || 0);
+  if (declaredLength > 12000) return NextResponse.json({ ok: false, error: "Request is too large." }, { status: 413 });
+  let raw = "";
+  try {
+    const reader = request.body?.getReader();
+    if (!reader) return NextResponse.json({ ok: false, error: "Request body is required." }, { status: 400 });
+    const decoder = new TextDecoder();
+    let byteLength = 0;
+    while (true) {
+      const part = await reader.read();
+      if (part.done) break;
+      byteLength += part.value.byteLength;
+      if (byteLength > 12000) {
+        await reader.cancel();
+        return NextResponse.json({ ok: false, error: "Request is too large." }, { status: 413 });
+      }
+      raw += decoder.decode(part.value, { stream: true });
+    }
+    raw += decoder.decode();
+  } catch {
+    return NextResponse.json({ ok: false, error: "Unable to read request body." }, { status: 400 });
+  }
   let body: unknown;
-  try { body = await request.json(); } catch { return NextResponse.json({ ok: false, error: "A valid JSON body is required." }, { status: 400 }); }
+  try { body = JSON.parse(raw); } catch { return NextResponse.json({ ok: false, error: "A valid JSON body is required." }, { status: 400 }); }
   if (!isRecord(body)) return NextResponse.json({ ok: false, error: "Invalid lead payload." }, { status: 400 });
   // Honeypot is a basic deterrent only; add edge rate limiting before paid traffic.
   if (sanitizeString(body.website, 200)) return NextResponse.json({ ok: true }, { status: 202 });
