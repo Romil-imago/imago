@@ -1,21 +1,201 @@
-import Link from "next/link";
-import { SiteHeader } from "@/app/components/SiteHeader";
+"use client";
 
-const work = [
-  {n:"01",name:"NOVA",type:"SOCIAL CAMPAIGN / CONCEPT",kind:"nova",headline:"A launch that refuses to whisper.",copy:"Campaign direction · Reels · Paid social",tag:"CONCEPT STUDY"},
-  {n:"02",name:"MORROW",type:"BRAND WORLD / CONCEPT",kind:"morrow",headline:"Everyday, with a point of view.",copy:"Identity · Art direction · Content system",tag:"CONCEPT STUDY"},
-  {n:"03",name:"OFFSCRIPT",type:"CREATOR CONTENT / CONCEPT",kind:"offscript",headline:"Made for the scroll. Built to stick.",copy:"Short-form video · Creator briefs · Meta ads",tag:"CONCEPT STUDY"},
-  {n:"04",name:"FORM / FUNCTION",type:"DIGITAL EXPERIENCE / CONCEPT",kind:"form",headline:"Less friction. More yes.",copy:"Landing page · Conversion thinking · Analytics",tag:"CONCEPT STUDY"}
+import Link from "next/link";
+import { useState, type CSSProperties } from "react";
+
+const lenses = {
+  brand: {
+    label: "01 / BRAND",
+    title: <>Give the<br />brand a <em>pulse.</em></>,
+    copy: "Positioning, identity and campaigns with a point of view. Build a world people can recognise before they read the logo.",
+    output: "Positioning · Identity · Art direction · Campaign worlds",
+    color: "violet"
+  },
+  social: {
+    label: "02 / SOCIAL",
+    title: <>Make the<br />scroll <em>stop.</em></>,
+    copy: "Platform-native content that earns attention, gives people a reason to care and keeps the brand unmistakable.",
+    output: "Instagram · TikTok · YouTube · LinkedIn · Facebook",
+    color: "acid"
+  },
+  performance: {
+    label: "03 / PERFORMANCE",
+    title: <>Turn the<br />signal into <em>action.</em></>,
+    copy: "Paid media with a job to do. Creative, targeting, landing experiences and measurement working as one system.",
+    output: "Meta Ads · Google Ads · TikTok Ads · LinkedIn Ads",
+    color: "orange"
+  },
+  digital: {
+    label: "04 / DIGITAL",
+    title: <>Make the<br />next move <em>easy.</em></>,
+    copy: "Digital experiences that feel considered and remove friction between discovery, decision and conversion.",
+    output: "Websites · Landing pages · SEO · Email · CRO",
+    color: "blue"
+  }
+} as const;
+
+type Lens = keyof typeof lenses;
+
+const studies = [
+  { id: "A", title: "SCROLL CULTURE", platform: "INSTAGRAM / REELS", format: "9:16", style: "reel", note: "A visual language built to move at feed speed." },
+  { id: "B", title: "THE BIG IDEA", platform: "META / PAID SOCIAL", format: "1:1", style: "poster", note: "One sharp message, built to earn the next second." },
+  { id: "C", title: "POINT OF VIEW", platform: "LINKEDIN / YOUTUBE", format: "16:9", style: "frame", note: "A story system that makes expertise worth watching." }
 ];
-const capabilities=[["01","Brand","Positioning, identity, voice & campaign direction"],["02","Social","Instagram, TikTok, LinkedIn, Facebook & YouTube"],["03","Performance","Meta Ads, Google Ads, TikTok Ads & LinkedIn Ads"],["04","Content","Reels, short-form video, design & creator campaigns"],["05","Digital","Websites, landing pages, SEO & conversion"],["06","Lifecycle","Email, automation, remarketing & retention"]];
-const platforms=["Instagram","Facebook","TikTok","LinkedIn","YouTube","Google","Email"];
-export default function HomePage(){return <><SiteHeader/><main className="imago-v3">
-<section className="v3-opening"><div className="v3-topline"><span>INDEPENDENT CREATIVE + GROWTH STUDIO</span><span>STRATEGY / CULTURE / COMMERCE</span></div><div className="v3-wordmark" aria-label="Imago"><span>imago</span><b>®</b><i>.</i></div><div className="v3-open-bottom"><p>We make brands<br/><em>hard to ignore.</em></p><div><span>IDEAS THAT MOVE.</span><span>WORK THAT WORKS.</span><a href="#work">EXPLORE THE STUDIO ↓</a></div></div><div className="v3-orbit" aria-hidden="true"><span></span><span></span><b>i.</b></div></section>
-<section className="v3-intent"><div className="v3-index">A DIFFERENT KIND OF PARTNER / 01</div><h1>Not just more marketing.<br/><em>More meaning. More momentum.</em></h1><p>Imago connects brand, content and performance—so the things people notice are the things that move your business forward.</p><span className="v3-side-note">NO INDUSTRY BOXES.<br/>NO COPY-PASTE PLAYBOOKS.</span></section>
-<section className="v3-work" id="work"><div className="v3-work-head"><span>02 / THE CREATIVE FLOOR</span><h2>Ideas in<br/><em>the wild.</em></h2><p>A glimpse of how we think across brands, formats and platforms. These are illustrative concept studies—not commissioned client work.</p></div><div className="v3-work-grid">{work.map((w,i)=><article className={`v3-project v3-${w.kind}`} key={w.n}><div className="v3-project-meta"><span>{w.n} / {w.type}</span><span>{w.tag}</span></div><div className="v3-project-art">{w.kind==="nova"?<><div className="nova-sun"></div><strong>MAKE<br/>A <i>MOVE.</i></strong><small>NOVA / LAUNCH ENERGY</small><span className="nova-sticker">NEW<br/>NOW</span></>:w.kind==="morrow"?<><div className="morrow-shape"></div><strong>morrow<span>®</span></strong><small>GOOD THINGS, DAILY.</small></>:w.kind==="offscript"?<><div className="offscript-frame"><span>PLAY<br/>IT<br/><i>LOUD.</i></span><b>▶</b></div><small>OFFSCRIPT / 9:16</small></>:<><div className="form-window"><span>FORM / FUNCTION ↗</span><strong>Make it<br/><i>easy.</i></strong><div>DESIGN THAT CONVERTS <b>→</b></div></div></>}</div><div className="v3-project-foot"><div><h3>{w.name}</h3><p>{w.copy}</p></div><span>↗</span></div></article>)}</div><div className="v3-work-note"><span>THE POINT ISN'T THE MOCKUP.</span><p>It's the thinking behind it: <b>distinctive creative, made for the medium, connected to a business goal.</b></p></div></section>
-<section className="v3-platforms" id="platforms"><div className="v3-platform-intro"><span>03 / WHERE IT LIVES</span><h2>Native to<br/><em>the feed.</em></h2><p>Different platforms. Different behavior. One coherent brand—with creative and campaigns shaped for the place they appear.</p></div><div className="v3-platform-list">{platforms.map((x,i)=><div key={x}><span>0{i+1}</span><strong>{x}</strong><small>{["Reels · Stories · Ads","Community · Lead generation","Short-form · Spark Ads","B2B · Thought leadership","Shorts · Video","Search · Display · YouTube","Nurture · Automation"][i]}</small><b>↗</b></div>)}</div></section>
-<section className="v3-capabilities" id="services"><div className="v3-cap-top"><span>04 / WHAT WE BRING</span><h2>One studio.<br/><em>Connected disciplines.</em></h2><p>Bring us in for one sharp brief or build a joined-up growth engine. We meet the business where it is.</p></div><div className="v3-cap-list">{capabilities.map(c=><article key={c[0]}><span>{c[0]}</span><h3>{c[1]}</h3><p>{c[2]}</p><b>↗</b></article>)}</div></section>
-<section className="v3-measure"><div className="v3-measure-label">05 / THE WORK HAS A JOB</div><div className="v3-measure-main"><h2>Beautiful is<br/><em>the beginning.</em></h2><p>We set the objective before we make the work. Then we test, learn and improve—without pretending every campaign has a guaranteed outcome.</p><div className="v3-scoreline">{[["ATTENTION","Reach · Views"],["RESPONSE","Engagement · Clicks"],["INTENT","Qualified leads"],["ACTION","Conversion · Sales"],["EFFICIENCY","CPA · ROAS*"]].map(x=><div key={x[0]}><span>{x[0]}</span><b>{x[1]}</b><i>↗</i></div>)}</div><small>*Where conversion tracking and platform data allow.</small></div></section>
-<section className="v3-fit"><span>06 / WHO IT'S FOR</span><div><h2>Curious teams.<br/><em>Ambitious businesses.</em></h2><p>Consumer brands, startups, SaaS, retail, hospitality, healthcare, professional services, real estate, local businesses—and the next category we haven't met yet.</p><strong>WE DON'T PICK YOUR INDUSTRY.<br/>WE FIND YOUR ADVANTAGE.</strong></div></section>
-<section className="v3-close"><div className="v3-close-top"><span>07 / YOUR MOVE</span><span>GOOD WORK STARTS WITH A GOOD BRIEF.</span></div><h2>Have a brand<br/>to <em>move?</em></h2><div className="v3-close-bottom"><p>Tell us what you're building, where you're stuck, or what you want to make happen.</p><Link href="/growth">LET'S TALK ABOUT IT <span>↗</span></Link></div><div className="v3-big-asterisk">✳</div></section>
-</main><footer className="site-footer v3-footer"><div className="container footer-inner"><Link className="wordmark" href="/"><span className="wordmark-mark"/>imago<span className="wordmark-period">.</span></Link><span>CREATIVE × GROWTH</span><Link href="/services">Capabilities ↗</Link><Link href="/work">Concepts ↗</Link><span>© {new Date().getFullYear()} Imago Studio</span></div></footer></>}
+
+export default function HomePage() {
+  const [active, setActive] = useState<Lens>("social");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [pointer, setPointer] = useState({ x: 50, y: 50 });
+  const current = lenses[active];
+  const rootStyle = {
+    "--pointer-x": pointer.x + "%",
+    "--pointer-y": pointer.y + "%"
+  } as CSSProperties;
+
+  function moveArt(event: React.PointerEvent<HTMLElement>) {
+    if (event.pointerType === "touch") return;
+    const bounds = event.currentTarget.getBoundingClientRect();
+    setPointer({
+      x: Math.max(0, Math.min(100, ((event.clientX - bounds.left) / bounds.width) * 100)),
+      y: Math.max(0, Math.min(100, ((event.clientY - bounds.top) / bounds.height) * 100))
+    });
+  }
+
+  return (
+    <main className={`imago-art imago-art--${current.color}`} style={rootStyle} onPointerMove={moveArt}>
+      <header className="ia-nav">
+        <Link href="/" className="ia-brand" aria-label="Imago home"><span className="ia-brand-mark">✳</span><span>imago<span className="ia-period">.</span></span></Link>
+        <div className="ia-nav-center"><span>INDEPENDENT CREATIVE / GROWTH STUDIO</span><i /></div>
+        <nav className={menuOpen ? "ia-links ia-links--open" : "ia-links"} aria-label="Main navigation">
+          <Link href="/services">CAPABILITIES</Link>
+          <Link href="/work">FIELD NOTES</Link>
+          <a href="#channels" onClick={() => setMenuOpen(false)}>CHANNELS</a>
+          <Link className="ia-nav-contact" href="/growth">START A PROJECT <span>↗</span></Link>
+        </nav>
+        <button className="ia-menu" type="button" aria-expanded={menuOpen} aria-label="Toggle navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? "CLOSE −" : "MENU +"}</button>
+      </header>
+
+      <section className="ia-stage" id="top" aria-labelledby="ia-title">
+        <div className="ia-stage-grid" aria-hidden="true" />
+        <div className="ia-coordinate ia-coordinate--left">23° 02′ N&nbsp; / &nbsp;72° 34′ E<br />IDEAS IN MOTION</div>
+        <div className="ia-coordinate ia-coordinate--right">FIG. 001 — IMAGO SIGNAL OBJECT<br />MOVE YOUR CURSOR TO DISTURB THE FIELD</div>
+
+        <div className="ia-stage-copy">
+          <p className="ia-overline"><span className="ia-live-dot" /> STRATEGY × CREATIVE × DISTRIBUTION</p>
+          <h1 id="ia-title" key={active}>{current.title}</h1>
+          <p className="ia-hero-description">{current.copy}</p>
+          <div className="ia-hero-actions">
+            <Link href="/growth" className="ia-button">LET’S MAKE SOMETHING <span>↗</span></Link>
+            <a href="#signal" className="ia-text-link">EXPLORE THE STUDIO <span>↓</span></a>
+          </div>
+        </div>
+
+        <div className="ia-object-wrap" aria-hidden="true">
+          <div className="ia-object-halo" />
+          <div className="ia-object-shadow" />
+          <div className="ia-orbit ia-orbit--one"><i /></div>
+          <div className="ia-orbit ia-orbit--two"><i /></div>
+          <div className="ia-orbit ia-orbit--three"><i /></div>
+          <div className="ia-object">
+            <div className="ia-object-surface"><span>IM</span></div>
+            <div className="ia-object-cut" />
+            <div className="ia-object-glint" />
+          </div>
+          <div className="ia-object-cross ia-object-cross--one" />
+          <div className="ia-object-cross ia-object-cross--two" />
+          <div className="ia-object-caption">FORM / FEEL / FUNCTION<br /><b>THE WORK IS THE SIGNAL.</b></div>
+          <span className="ia-floating-tag ia-floating-tag--a">IDEAS<br />WITH INTENT</span>
+          <span className="ia-floating-tag ia-floating-tag--b">NO TEMPLATE<br />ENERGY</span>
+          <span className="ia-floating-tag ia-floating-tag--c">EST. FOR<br />WHAT’S NEXT</span>
+        </div>
+
+        <div className="ia-lens-control" aria-label="Explore Imago disciplines">
+          <div className="ia-lens-label"><span>CHOOSE YOUR FREQUENCY</span><span>0{Object.keys(lenses).indexOf(active) + 1} / 04</span></div>
+          <div className="ia-lens-buttons">
+            {(Object.keys(lenses) as Lens[]).map((key) => (
+              <button key={key} type="button" className={active === key ? "ia-lens ia-lens--active" : "ia-lens"} onClick={() => setActive(key)} aria-pressed={active === key}>
+                <span>{lenses[key].label}</span><b>{active === key ? "↗" : "+"}</b>
+              </button>
+            ))}
+          </div>
+          <p className="ia-lens-output">{current.output}</p>
+        </div>
+
+        <div className="ia-stage-index"><span>SCROLL TO EXPLORE</span><span>01 — 04</span></div>
+        <div className="ia-scroll-line" aria-hidden="true"><i /></div>
+      </section>
+
+      <div className="ia-marquee" aria-hidden="true"><div className="ia-marquee-track">{Array.from({length: 4}).map((_, i) => <span key={i}>MAKE CULTURE <b>✳</b> MOVE PEOPLE <b>✳</b> BUILD MOMENTUM <b>✳</b> STAY UNEXPECTED <b>✳</b></span>)}</div></div>
+
+      <section className="ia-manifesto" id="signal">
+        <div className="ia-manifesto-stamp">IMAGO / A POINT OF VIEW<br />NOT A CONTENT FACTORY</div>
+        <div className="ia-manifesto-main">
+          <p className="ia-kicker">THE SHORT VERSION / 001</p>
+          <h2>We don’t make<br />more <span>noise.</span><br />We make it <em>mean something.</em></h2>
+          <div className="ia-manifesto-foot"><p>Imago brings brand thinking, creative production and performance together. Not as separate departments. As one connected idea—from the first impression to the next action.</p><span>LESS FORMULA.<br />MORE FEELING.<br />BETTER INTENT.</span></div>
+        </div>
+        <div className="ia-manifesto-mark" aria-hidden="true">✳</div>
+      </section>
+
+      <section className="ia-channel-world" id="channels">
+        <div className="ia-channel-heading">
+          <div><p className="ia-kicker">THE DISTRIBUTION FIELD / 002</p><h2>Same soul.<br /><em>Different stages.</em></h2></div>
+          <p>We don’t resize one idea and call it a strategy. Each platform has its own language, pace and reason to exist.</p>
+        </div>
+        <div className="ia-platform-cloud" aria-label="Platforms supported by Imago">
+          <span className="ia-platform ia-platform--instagram">INSTAGRAM <b>↗</b><small>REELS / STORIES / FEED</small></span>
+          <span className="ia-platform ia-platform--tiktok">TikTok <b>↗</b><small>SHORT-FORM / SPARK ADS</small></span>
+          <span className="ia-platform ia-platform--meta">META ADS <b>↗</b><small>PAID SOCIAL / LEADS</small></span>
+          <span className="ia-platform ia-platform--linkedin">LinkedIn <b>↗</b><small>B2B / THOUGHT LEADERSHIP</small></span>
+          <span className="ia-platform ia-platform--youtube">YOUTUBE <b>↗</b><small>SHORTS / VIDEO</small></span>
+          <span className="ia-platform ia-platform--google">GOOGLE <b>↗</b><small>SEARCH / DISPLAY</small></span>
+          <span className="ia-platform ia-platform--email">EMAIL + CRM <b>↗</b><small>AUTOMATION / RETENTION</small></span>
+        </div>
+        <div className="ia-platform-foot"><span>ONE BRAND, MANY CONTEXTS.</span><span>BUILT FOR THE MEDIUM — NEVER JUST THE FORMAT.</span></div>
+      </section>
+
+      <section className="ia-studies">
+        <div className="ia-studies-head"><p className="ia-kicker">VISUAL EXPERIMENTS / 003</p><div><h2>Signals from<br /><em>the imagination.</em></h2><p>Speculative art-direction studies. Not client campaigns. A look at how an idea can take shape when the medium is part of the concept.</p></div></div>
+        <div className="ia-study-grid">
+          {studies.map((study) => (
+            <article className={`ia-study ia-study--${study.style}`} key={study.id}>
+              <div className="ia-study-meta"><span>STUDY / {study.id}</span><span>{study.format}</span></div>
+              <div className="ia-study-art">
+                {study.style === "reel" && <><div className="ia-reel-sun" /><div className="ia-reel-type">FEEL<br /><i>THE</i><br />FUTURE.</div><div className="ia-reel-pill">PLAY / PAUSE / REPEAT</div><div className="ia-reel-orbit" /></>}
+                {study.style === "poster" && <><div className="ia-poster-type">DON’T<br /><em>BLEND.</em></div><div className="ia-poster-stamp">MAKE<br />A MARK</div><div className="ia-poster-bar" /></>}
+                {study.style === "frame" && <><div className="ia-frame-top">A BETTER QUESTION / 00:24</div><div className="ia-frame-object"><span>?</span></div><div className="ia-frame-title">WHAT IF<br />WE <em>SHIFTED?</em></div><div className="ia-frame-bottom">IDEAS ARE A BUSINESS TOOL.</div></>}
+              </div>
+              <div className="ia-study-info"><div><span>{study.platform}</span><h3>{study.title}</h3><p>{study.note}</p></div><b>↗</b></div>
+            </article>
+          ))}
+        </div>
+        <div className="ia-study-disclaimer"><span>ART DIRECTION / CONCEPT EXPLORATIONS</span><span>NO BORROWED CASE STUDIES. NO INVENTED NUMBERS.</span></div>
+      </section>
+
+      <section className="ia-engine">
+        <div className="ia-engine-intro"><p className="ia-kicker">THE ENGINE / 004</p><h2>Creative<br />with a <em>job.</em></h2><p>Good-looking work gets attention. Good thinking gives that attention somewhere to go.</p></div>
+        <div className="ia-engine-orbit" aria-hidden="true"><div className="ia-engine-ring ia-engine-ring--a" /><div className="ia-engine-ring ia-engine-ring--b" /><div className="ia-engine-core">IDEA<br /><span>→</span><br />IMPACT</div><i className="ia-engine-node ia-engine-node--a">01</i><i className="ia-engine-node ia-engine-node--b">02</i><i className="ia-engine-node ia-engine-node--c">03</i></div>
+        <div className="ia-engine-steps">
+          <article><span>01 / ATTENTION</span><h3>Earn the pause.</h3><p>Reach, impressions, video views and the signals that tell us a story is landing.</p></article>
+          <article><span>02 / INTENT</span><h3>Find the signal.</h3><p>Engagement, clicks, qualified leads and the actions that reveal real interest.</p></article>
+          <article><span>03 / ACTION</span><h3>Make it count.</h3><p>Conversions, cost per acquisition and return on ad spend—where tracking supports it.</p></article>
+        </div>
+        <p className="ia-engine-note">No guaranteed outcomes or made-up dashboards. We agree what success means, instrument what can be measured, then improve from evidence.</p>
+      </section>
+
+      <section className="ia-audience">
+        <div className="ia-audience-side"><span>05 / OPEN BY DESIGN</span><span>NO INDUSTRY BOXES</span></div>
+        <div><p className="ia-kicker">A GOOD FIT FOR / 005</p><h2>Ambition is<br />the common <em>ground.</em></h2><p>Startups, consumer brands, SaaS, retail, hospitality, healthcare, real estate, professional services and teams building something that deserves to be noticed.</p><div className="ia-audience-tags"><span>EARLY IDEAS</span><span>GROWING BRANDS</span><span>NEW MARKETS</span><span>FRESH THINKING</span></div></div>
+        <div className="ia-audience-glyph" aria-hidden="true">↗</div>
+      </section>
+
+      <section className="ia-contact" id="contact">
+        <div className="ia-contact-top"><span>06 / YOUR TURN</span><span>THE NEXT GOOD THING STARTS SOMEWHERE.</span></div>
+        <div className="ia-contact-layout"><div><p className="ia-kicker">HAVE A BRIEF. HAVE A QUESTION. HAVE A HUNCH.</p><h2>Let’s make<br /><em>that move.</em></h2></div><Link href="/growth" className="ia-contact-orb"><span>START<br />A PROJECT</span><b>↗</b></Link></div>
+        <div className="ia-contact-bottom"><a href="mailto:inquiries.imago@gmail.com">INQUIRIES.IMAGO@GMAIL.COM ↗</a><span>IMAGO / CREATIVE × GROWTH</span><span>© {new Date().getFullYear()} IMAGO STUDIO</span></div>
+      </section>
+
+      <footer className="ia-footer"><Link href="/" className="ia-brand"><span className="ia-brand-mark">✳</span><span>imago<span className="ia-period">.</span></span></Link><div><Link href="/services">CAPABILITIES</Link><Link href="/work">FIELD NOTES</Link><Link href="/growth">CONTACT</Link></div><span>BUILT TO MOVE.</span></footer>
+    </main>
+  );
+}
