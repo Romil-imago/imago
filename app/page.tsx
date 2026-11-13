@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from "react";
+import { useState, type PointerEvent as ReactPointerEvent } from "react";
 
 const lenses = {
   brand: {
@@ -45,24 +45,18 @@ const studies = [
 export default function HomePage() {
   const [active, setActive] = useState<Lens>("social");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [pointer, setPointer] = useState({ x: 50, y: 50 });
   const current = lenses[active];
-  const rootStyle = {
-    "--pointer-x": pointer.x + "%",
-    "--pointer-y": pointer.y + "%"
-  } as CSSProperties;
-
   function moveArt(event: ReactPointerEvent<HTMLElement>) {
     if (event.pointerType === "touch") return;
     const bounds = event.currentTarget.getBoundingClientRect();
-    setPointer({
-      x: Math.max(0, Math.min(100, ((event.clientX - bounds.left) / bounds.width) * 100)),
-      y: Math.max(0, Math.min(100, ((event.clientY - bounds.top) / bounds.height) * 100))
-    });
+    const x = Math.max(0, Math.min(100, ((event.clientX - bounds.left) / bounds.width) * 100));
+    const y = Math.max(0, Math.min(100, ((event.clientY - bounds.top) / bounds.height) * 100));
+    event.currentTarget.style.setProperty("--pointer-x", x + "%");
+    event.currentTarget.style.setProperty("--pointer-y", y + "%");
   }
 
   return (
-    <main className={`imago-art imago-art--${current.color}`} style={rootStyle} onPointerMove={moveArt}>
+    <main className={`imago-art imago-art--${current.color}`} onPointerMove={moveArt}>
       <header className="ia-nav">
         <Link href="/" className="ia-brand" aria-label="Imago home"><span className="ia-brand-mark">✳</span><span>imago<span className="ia-period">.</span></span></Link>
         <div className="ia-nav-center"><span>INDEPENDENT CREATIVE / GROWTH STUDIO</span><i /></div>
