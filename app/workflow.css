@@ -691,3 +691,51 @@
 @keyframes sm-orbit{to{transform:rotate(360deg)}}@keyframes sm-pulse{50%{transform:scale(.83) rotate(30deg)}}@keyframes sm-marquee{to{transform:translateX(-50%)}}
 @media(max-width:760px){.sm-header{height:65px;padding:0 20px}.sm-header-center{display:none}.sm-hero{padding:20px;min-height:660px}.sm-topline{font-size:8px}.sm-hero-title{min-height:430px}.sm-hero h1{font-size:clamp(85px,22vw,150px);margin:65px 0}.sm-orb{right:3%;bottom:35px;width:220px}.sm-sticker{width:95px;height:95px;font-size:12px;right:4%;top:7%}.sm-hero-bottom{display:block}.sm-hero-bottom p{font-size:14px}.sm-cta{display:inline-block;margin-top:18px}.sm-scroll{display:none}.sm-manifesto{padding:85px 22px}.sm-manifesto-foot{display:block}.sm-manifesto-foot p{margin-top:18px}.sm-services{padding:75px 20px}.sm-section-head{display:block}.sm-section-head>p{margin-top:25px}.sm-service-grid{grid-template-columns:1fr 1fr}.sm-service{min-height:250px;padding:15px}.sm-service b{font-size:31px}.sm-service small{font-size:8px}.sm-content{padding:75px 20px}.sm-reels{gap:8px}.reel{padding:10px}.reel-copy b{font-size:clamp(24px,7vw,42px)}.reel-copy small,.reel-tag{font-size:7px}.sm-loop{padding:80px 22px;min-height:600px}.sm-loop-stamp{right:7%;top:14%;width:85px;height:85px;font-size:12px}.sm-loop-bottom{display:block}.sm-loop-bottom a{display:inline-block;margin-top:20px}.sm-final{padding:75px 20px 20px}.sm-final footer{gap:14px;flex-wrap:wrap;margin-top:70px}.sm-final footer span:nth-child(2){display:none}}
 @media(prefers-reduced-motion:reduce){.sm-ticker>div,.sm-orb div,.reel-shape{animation:none!important}.sm-service{transition:none}}
+
+
+/* IMAGO / CULTURE MOTION SYSTEM — art direction pass */
+.social-site{--acid:#d7ff26;--pink:#ff36c7;--blue:#5742ff;cursor:crosshair}
+.sm-header{background:var(--paper);position:sticky;top:0;backdrop-filter:blur(16px);background:#f5f2e9e8}
+.sm-logo{transition:letter-spacing .35s cubic-bezier(.2,.8,.2,1)}.sm-logo:hover{letter-spacing:-.02em}
+.sm-hero{isolation:isolate}
+.sm-hero:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.16;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");mix-blend-mode:multiply;z-index:-1}
+.sm-hero h1{animation:sm-title-in 1s cubic-bezier(.16,1,.3,1) both}
+.sm-hero h1 em{display:inline-block;animation:sm-scribble 1.2s .4s cubic-bezier(.16,1,.3,1) both}
+.sm-sticker{animation:sm-sticker-in .8s .6s cubic-bezier(.16,1,.3,1) both,sm-sticker-wobble 6s 1.4s ease-in-out infinite}
+.sm-orb{animation:sm-float 7s ease-in-out infinite}
+.sm-orb div:first-child{animation:sm-orbit 22s linear infinite,sm-hue 12s linear infinite}
+.sm-orb div:nth-child(2){animation:sm-orbit 17s linear infinite reverse}
+.sm-scroll:after{content:"";display:inline-block;width:1px;height:45px;background:var(--ink);margin-top:12px;animation:sm-scroll-line 1.5s ease-in-out infinite}
+.sm-ticker{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(-1deg) scale(1.02);margin:8px 0}
+.sm-manifesto h2{max-width:1100px}
+.sm-manifesto h2 em{position:relative;display:inline-block}
+.sm-manifesto h2 em:after{content:"";position:absolute;left:0;right:-2%;bottom:-7px;height:9px;background:var(--pink);transform:scaleX(0) rotate(-1deg);transform-origin:left;animation:sm-highlight 1s 1s ease forwards}
+.sm-services{position:relative;isolation:isolate}
+.sm-services:after{content:"✳";position:absolute;right:-.05em;top:-.3em;font-size:clamp(160px,30vw,450px);font-weight:900;opacity:.08;pointer-events:none;z-index:-1}
+.sm-service{border:1.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink);transform-origin:center;overflow:hidden;position:relative}
+.sm-service:before{content:"";position:absolute;inset:0;background:var(--pink);transform:translateY(102%);transition:transform .55s cubic-bezier(.16,1,.3,1);z-index:0}
+.sm-service>*{position:relative;z-index:1}
+.sm-service:hover:before{transform:translateY(0)}
+.sm-service:hover{box-shadow:9px 12px 0 var(--ink);transform:translateY(-8px) rotate(-1.5deg)}
+.sm-service b{transition:transform .45s cubic-bezier(.16,1,.3,1)}.sm-service:hover b{transform:translateX(7px)}
+.reel{border:2px solid var(--ink);box-shadow:7px 7px 0 var(--ink);transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s}
+.reel:nth-child(2){transform:rotate(2deg)}.reel:nth-child(3){transform:rotate(-2deg)}
+.reel:hover{transform:translateY(-12px) rotate(0deg) scale(1.025);box-shadow:12px 18px 0 var(--ink);z-index:2}
+.reel-pop .reel-shape{mix-blend-mode:multiply}
+.reel-type .reel-shape{transition:transform .6s cubic-bezier(.16,1,.3,1)}.reel-type:hover .reel-shape{transform:rotate(25deg) scale(1.15)}
+.reel-motion:hover .reel-shape{animation-duration:1s}
+.sm-loop{isolation:isolate}.sm-loop:after{content:"↻";position:absolute;right:8%;bottom:8%;font-size:clamp(100px,20vw,280px);color:var(--acid);opacity:.08;animation:sm-orbit 28s linear infinite;z-index:-1}
+.sm-loop h2 em,.sm-loop h2 span{display:inline-block;transition:transform .5s}.sm-loop h2 em:hover{transform:skew(-12deg) translateX(20px)}.sm-loop h2 span:hover{transform:translateX(25px) rotate(-2deg)}
+.sm-final{overflow:hidden;isolation:isolate}.sm-final:before{content:"IMAGO ✳ SOCIAL ✳ CULTURE ✳";position:absolute;right:-12%;top:12%;font-size:clamp(30px,6vw,85px);font-weight:1000;letter-spacing:-.08em;white-space:nowrap;opacity:.09;transform:rotate(-15deg);z-index:-1}
+.sm-final h2{transition:letter-spacing .6s}.sm-final h2:hover{letter-spacing:-.07em}
+.sm-final>a{transition:padding .3s,background .3s;padding:10px 14px}.sm-final>a:hover{background:var(--acid);padding-right:28px}
+@keyframes sm-title-in{from{opacity:0;transform:translateY(70px);clip-path:inset(0 0 100%)}to{opacity:1;transform:translateY(0);clip-path:inset(0)}}
+@keyframes sm-scribble{0%{transform:scaleX(.1) rotate(-8deg);opacity:0}100%{transform:scaleX(1) rotate(0);opacity:1}}
+@keyframes sm-sticker-in{from{opacity:0;transform:scale(.2) rotate(-90deg)}to{opacity:1;transform:scale(1) rotate(13deg)}}
+@keyframes sm-sticker-wobble{0%,100%{rotate:13deg}50%{rotate:4deg}}
+@keyframes sm-float{0%,100%{translate:0 0}50%{translate:0 -18px}}
+@keyframes sm-scroll-line{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+@keyframes sm-highlight{to{transform:scaleX(1) rotate(-1deg)}}
+@keyframes sm-hue{to{filter:hue-rotate(360deg)}}
+@media(max-width:760px){.sm-ticker{transform:none;margin:0}.sm-service:hover{transform:translateY(-5px)}.reel:nth-child(2),.reel:nth-child(3){transform:none}.sm-hero h1{animation-duration:.7s}}
+@media(prefers-reduced-motion:reduce){.sm-hero h1,.sm-hero h1 em,.sm-sticker,.sm-orb,.sm-orb div,.sm-scroll:after,.sm-manifesto h2 em:after,.sm-loop:after{animation:none!important}.sm-service:before{transition:none}}
