@@ -1,0 +1,4 @@
+"use client";
+import Link from "next/link";
+import {useState} from "react";
+export function SiteHeader(){const[open,setOpen]=useState(false);return <header className="ik-subhead"><Link href="/" className="ik-sub-logo">imago<span>®</span></Link><span className="ik-sub-label">INDEPENDENT CREATIVE STUDIO / INDIA—EVERYWHERE</span><button className="ik-sub-trigger" onClick={()=>setOpen(!open)}>{open?"CLOSE ×":"INDEX ↗"}</button>{open&&<nav className="ik-sub-menu"><Link href="/services" onClick={()=>setOpen(false)}><small>01</small> THE PRACTICE <b>↗</b></Link><Link href="/work" onClick={()=>setOpen(false)}><small>02</small> CONCEPT ARCHIVE <b>↗</b></Link><Link href="/growth" onClick={()=>setOpen(false)}><small>03</small> START A PROJECT <b>↗</b></Link></nav>}</header>}
