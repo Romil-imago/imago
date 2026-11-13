@@ -1,32 +1,44 @@
 "use client";
-import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const services = [
-  ["01", "Digital experiences", "Websites and interfaces that make complex ideas feel effortless."],
-  ["02", "Software & systems", "Thoughtful products, platforms and tools built around real needs."],
-  ["03", "Intelligent products", "Useful AI and automation that fit into the way people work."],
+const capabilities = [
+  { n:"01", title:"Brand worlds", copy:"Identity systems and digital places with a point of view." },
+  { n:"02", title:"Digital products", copy:"Useful interfaces, platforms and experiences people return to." },
+  { n:"03", title:"Intelligent tools", copy:"AI and automation that make work feel lighter." },
 ];
-const projects = [
-  ["01 / DIGITAL", "A clearer way to move", "Product experience", "lime"],
-  ["02 / SYSTEMS", "Less friction. More flow.", "Workflow platform", "blue"],
-  ["03 / INTELLIGENCE", "Make the signal useful", "AI experience", "violet"],
+const experiments = [
+  { n:"EXP—01", name:"The living identity", type:"Brand / Motion", tone:"mint" },
+  { n:"EXP—02", name:"A calmer commerce", type:"Product / UX", tone:"orange" },
+  { n:"EXP—03", name:"Signals, surfaced", type:"AI / Interface", tone:"blue" },
 ];
-export default function Home() {
-  const [menu,setMenu] = useState(false);
-  return <main className="imago-new">
-    <header className="in-nav"><Link href="/" className="in-logo">imago<span>®</span></Link><span className="in-nav-note">INDEPENDENT DIGITAL STUDIO / INDIA</span><button onClick={()=>setMenu(!menu)}>{menu?"CLOSE −":"MENU +"}</button></header>
-    {menu&&<nav className="in-menu"><a href="#services" onClick={()=>setMenu(false)}>Services ↘</a><a href="#work" onClick={()=>setMenu(false)}>Selected work ↘</a><a href="#about" onClick={()=>setMenu(false)}>Approach ↘</a><a href="#contact" onClick={()=>setMenu(false)}>Contact ↘</a></nav>}
-    <section className="in-hero">
-      <div className="in-kicker"><i/> DIGITAL STUDIO FOR WHAT’S NEXT <span>EST. 2026</span></div>
-      <div className="in-hero-main"><h1>Digital,<br/><em>with intent.</em></h1><div className="in-visual" aria-hidden="true"><div className="in-orb"/><div className="in-ring ring-a"/><div className="in-ring ring-b"/><span className="in-visual-label">IDEAS → REALITY</span><span className="in-visual-index">IM / 001</span></div></div>
-      <div className="in-hero-foot"><p>We turn ambitious ideas into <strong>digital experiences, software and intelligent systems</strong> that move businesses forward.</p><a href="#services">EXPLORE WHAT WE DO <b>↓</b></a></div>
-      <div className="in-scroll">SCROLL TO DISCOVER <span>↘</span></div>
+export default function Home(){
+  const [menu,setMenu]=useState(false);
+  const [scrolled,setScrolled]=useState(false);
+  const root=useRef<HTMLElement>(null);
+  useEffect(()=>{
+    const onScroll=()=>setScrolled(window.scrollY>24);
+    window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+    const els=document.querySelectorAll("[data-reveal]");
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-in");io.unobserve(e.target)}}),{threshold:.12});
+    els.forEach(el=>io.observe(el));
+    return()=>{window.removeEventListener("scroll",onScroll);io.disconnect()};
+  },[]);
+  return <main className="scratch" ref={root}>
+    <header className={"s-nav "+(scrolled?"is-scrolled":"")}><a className="s-wordmark" href="#top">IMAGO<span>®</span></a><span className="s-nav-center">INDEPENDENT DIGITAL PRACTICE · INDIA</span><button className="s-menu-btn" onClick={()=>setMenu(v=>!v)}>{menu?"CLOSE":"INDEX"} <b>{menu?"−":"+"}</b></button></header>
+    {menu&&<div className="s-menu-panel"><a href="#thinking" onClick={()=>setMenu(false)}>Point of view <i>01</i></a><a href="#capabilities" onClick={()=>setMenu(false)}>What we do <i>02</i></a><a href="#lab" onClick={()=>setMenu(false)}>Experiments <i>03</i></a><a href="#contact" onClick={()=>setMenu(false)}>Say hello <i>↗</i></a></div>}
+    <section className="s-hero" id="top">
+      <div className="s-hero-top"><span><i className="s-live"/> DESIGN × TECHNOLOGY</span><span>MADE FOR THE NEXT</span></div>
+      <div className="s-hero-grid">
+        <h1>Make<br/><span>meaning</span><br/>move<span className="s-period">.</span></h1>
+        <div className="s-stage" aria-label="Animated abstract Imago artwork"><div className="s-sun"/><div className="s-loop loop-one"/><div className="s-loop loop-two"/><div className="s-loop loop-three"/><div className="s-stage-cross">I<br/>M</div><span className="s-stage-tag">IMAGO / 26</span></div>
+      </div>
+      <div className="s-hero-bottom"><p>We shape <strong>brands, digital products and intelligent experiences</strong> for people building what comes next.</p><a href="#thinking">SCROLL TO EXPLORE <span>↓</span></a></div>
+      <div className="s-marquee" aria-hidden="true"><div>IDEAS INTO EXPERIENCE · EXPERIENCE INTO IMPACT · IDEAS INTO EXPERIENCE · EXPERIENCE INTO IMPACT ·</div></div>
     </section>
-    <section className="in-intro" id="about"><div className="in-label">01 / THE POINT</div><div><h2>Good technology<br/>should feel <em>obvious.</em></h2><p>Behind every useful digital thing is a clear thought. We bring strategy, design and engineering into one conversation—then build the thing that should exist.</p></div><div className="in-intro-mark">i<span>m</span></div></section>
-    <section className="in-services" id="services"><div className="in-section-head"><div className="in-label">02 / CAPABILITIES</div><p>From first thought<br/>to shipped product.</p></div><div className="in-service-list">{services.map(([n,t,d])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p><b>↗</b></article>)}</div></section>
-    <section className="in-work" id="work"><div className="in-section-head"><div className="in-label">03 / SELECTED DIRECTIONS</div><p>Ideas made tangible.</p></div><div className="in-projects">{projects.map(([n,t,d,c])=><article className={"in-project "+c} key={n}><div className="in-project-art"><span>{n}</span><div className="in-art-core"/><b>↗</b></div><div className="in-project-meta"><h3>{t}</h3><span>{d}</span></div></article>)}</div><p className="in-work-note">CONCEPTUAL DIRECTIONS · NOT CLIENT CASE STUDIES</p></section>
-    <section className="in-approach"><div className="in-label">04 / HOW WE THINK</div><h2>Small teams.<br/><em>Clear thinking.</em><br/>Real outcomes.</h2><div className="in-approach-copy"><p>No layers of hand-offs. No technology for technology’s sake. Just a focused team connecting the dots between what you need, what people experience, and what gets built.</p><a href="#contact">A LITTLE MORE ABOUT US ↗</a></div></section>
-    <section className="in-contact" id="contact"><div className="in-label">05 / HAVE A GOOD ONE IN MIND?</div><h2>Let’s make<br/><em>it matter.</em></h2><a className="in-contact-link" href="mailto:inquiries.imago@gmail.com">INQUIRIES.IMAGO@GMAIL.COM ↗</a><footer><Link href="/" className="in-logo">imago<span>®</span></Link><span>INDEPENDENT BY DESIGN.</span><span>© 2026 IMAGO</span></footer></section>
+    <section className="s-thinking" id="thinking"><div className="s-eyebrow" data-reveal>01 — OUR POINT OF VIEW</div><div className="s-thinking-content" data-reveal><h2>Less noise.<br/><em>More meaning.</em></h2><p>Good digital work isn’t decoration. It’s a clear idea, made useful—through design, technology and a little bit of courage.</p><span className="s-big-mark">↗</span></div></section>
+    <section className="s-capabilities" id="capabilities"><div className="s-section-heading" data-reveal><span className="s-eyebrow">02 — WHAT WE DO</span><h2>Build the<br/><em>right thing.</em></h2><p>From a first spark to a real thing in the world.</p></div><div className="s-cap-list">{capabilities.map(c=><article key={c.n} data-reveal><span>{c.n}</span><h3>{c.title}</h3><p>{c.copy}</p><b>↗</b></article>)}</div></section>
+    <section className="s-lab" id="lab"><div className="s-lab-head" data-reveal><span className="s-eyebrow">03 — THE PLAYGROUND</span><h2>Ideas in<br/><em>progress.</em></h2><span className="s-lab-note">A few directions we love exploring.<br/>Concept studies—not client case studies.</span></div><div className="s-experiments">{experiments.map((x,i)=><article className={"s-experiment "+x.tone} key={x.n} data-reveal><div className="s-ex-art"><span>{x.n}</span><div className="s-ex-shape"/><b>↗</b></div><div className="s-ex-caption"><h3>{x.name}</h3><span>{x.type}</span></div></article>)}</div></section>
+    <section className="s-manifesto"><span className="s-eyebrow" data-reveal>04 — HOW WE WORK</span><h2 data-reveal>Curious minds.<br/><em>Close collaboration.</em><br/>Work that works.</h2><div className="s-manifesto-foot" data-reveal><p>Small by design. Senior hands on every detail. We bring strategy, design and engineering into one room—and stay there until it feels right.</p><span>THOUGHT → FORM → FUNCTION</span></div></section>
+    <section className="s-contact" id="contact"><span className="s-eyebrow">05 — YOUR TURN</span><h2>Have a good<br/><em>idea?</em></h2><a className="s-contact-link" href="mailto:inquiries.imago@gmail.com">LET’S TALK <b>↗</b></a><footer><a className="s-wordmark" href="#top">IMAGO<span>®</span></a><span>INDEPENDENT BY DESIGN · © 2026</span><a href="#top">BACK TO TOP ↑</a></footer></section>
   </main>;
 }
