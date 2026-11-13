@@ -1,17 +1,4 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
-export function SiteHeader() {
-  const [open, setOpen] = useState(false);
-  return <header className="site-header"><div className="container nav-wrap">
-    <Link className="wordmark" href="/" aria-label="Imago home"><span className="wordmark-mark" aria-hidden="true" /><span>imago<span className="wordmark-period">.</span></span></Link>
-    <button className="menu-toggle" type="button" aria-expanded={open} aria-label="Toggle navigation" onClick={() => setOpen(!open)}>☰</button>
-    <nav className={`main-nav${open ? " nav-open" : ""}`} aria-label="Main navigation">
-      <Link onClick={() => setOpen(false)} href="/services">Services</Link>
-      <Link onClick={() => setOpen(false)} href="/#industries">Industries</Link>
-      <Link onClick={() => setOpen(false)} href="/work">Creative</Link>
-      <Link onClick={() => setOpen(false)} href="/#platforms">Platforms</Link>
-    </nav>
-    <Link className="button button-dark button-small nav-cta" href="/growth">Let’s talk <span>↗</span></Link>
-  </div></header>;
-}
+import {useState} from "react";
+export function SiteHeader(){const[open,setOpen]=useState(false);return <header className="ik-subhead"><Link href="/" className="ik-sub-logo">imago<span>®</span></Link><span className="ik-sub-label">INDEPENDENT CREATIVE STUDIO / INDIA—EVERYWHERE</span><button className="ik-sub-trigger" onClick={()=>setOpen(!open)}>{open?"CLOSE ×":"INDEX ↗"}</button>{open&&<nav className="ik-sub-menu"><Link href="/services" onClick={()=>setOpen(false)}><small>01</small> THE PRACTICE <b>↗</b></Link><Link href="/work" onClick={()=>setOpen(false)}><small>02</small> CONCEPT ARCHIVE <b>↗</b></Link><Link href="/growth" onClick={()=>setOpen(false)}><small>03</small> START A PROJECT <b>↗</b></Link></nav>}</header>}
