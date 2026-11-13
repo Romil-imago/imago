@@ -3,12 +3,12 @@ import "./globals.css";
 import "./workflow.css";
 
 export const metadata: Metadata = {
-  title: { default: "Imago Studio — Creative & Growth", template: "%s | Imago Studio" },
-  description: "Independent creative and growth partner. Brand strategy, social media, creative production and performance marketing for ambitious businesses.",
+  title: { default: "Imago — Digital Art Direction & Growth", template: "%s | Imago Studio" },
+  description: "A digital art direction and growth studio connecting brand, social content, creative production and performance marketing.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"),
   openGraph: {
     title: "Imago Studio — Creative & Growth",
-    description: "Brand, creative and performance—connected to move business forward.",
+    description: "Distinctive brand worlds, platform-native content and performance creative built to move people and business.",
     type: "website"
   }
 };
