@@ -11,3 +11,20 @@
 @keyframes z-spin{to{transform:rotate(360deg)}}@keyframes z-float{50%{transform:translateY(-18px) scale(.95)}}@keyframes z-marquee{to{transform:translateX(-50%)}}
 @media(max-width:700px){.z-location{display:none}.z-hero{min-height:760px}.z-hero-canvas{width:72vw;right:0;top:20%}.z-hero h1{font-size:17vw;margin-top:23vh}.z-hero-bottom{display:block}.z-hero-bottom p{font-size:16px}.z-hero-bottom a{display:inline-block;margin-top:15px}.z-vertical{bottom:25px}.z-manifesto{padding:12vh 7vw}.z-manifesto h2,.z-capabilities h2{font-size:13vw;margin:45px 0}.z-manifesto>p{margin:0;max-width:80%}.z-doodle{top:auto;bottom:8%;right:4%;padding:20px}.z-tiles{grid-template-columns:1fr}.z-tile:nth-child(2),.z-tile:nth-child(3){margin:0}.z-capabilities{display:block;padding:12vh 7vw}.z-cap-list{margin-top:35px}.z-final h2{font-size:16vw}.z-final footer{flex-wrap:wrap;gap:15px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+
+/* IMAGO CULTURE MOVE — fresh creative identity */
+:root{--paper:#F5F0E8;--ink:#242320;--muted:#77736d;--line:#d9d2c8;--cobalt:#657DB7;--pink:#D9A1A7}
+body{background:var(--paper);color:var(--ink)}
+.in-logo span{color:var(--cobalt)}.in-nav button{border-color:var(--ink)}
+.in-hero h1 em,.in-intro h2 em,.in-approach h2 em{color:var(--cobalt)}
+.in-kicker i{background:var(--pink);box-shadow:0 0 0 4px #f0dfe0}
+.in-orb{background:radial-gradient(circle at 30% 25%,#fff8f0 0 5%,var(--pink) 15%,#aab9d8 48%,var(--cobalt) 70%,#242320 100%)}
+.ring-b{border-color:var(--pink)}.in-visual-label{background:var(--cobalt);color:var(--paper)}
+.in-intro h2 em{color:var(--pink)}
+.in-project.lime .in-project-art{background:var(--pink);color:var(--ink)}
+.in-project.blue .in-project-art{background:var(--cobalt);color:var(--paper)}
+.in-project.violet .in-project-art{background:#242320;color:var(--paper)}
+.in-art-core{background:var(--pink)}.in-project.blue .in-art-core{background:var(--paper)}.in-project.violet .in-art-core{background:var(--cobalt)}
+.in-approach h2 em{color:var(--pink)}.in-contact{background:var(--cobalt);color:var(--paper)}
+.in-contact h2 em{color:var(--pink)}.in-contact-link{border-color:var(--paper)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
