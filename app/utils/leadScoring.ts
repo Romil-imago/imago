@@ -1,12 +1,17 @@
 export type LeadType = "agency_prospect" | "homeowner_quote";
-export type LeadInput = { leadType: LeadType; timeline?: string; phone?: string; email?: string; trade?: string; service?: string; company?: string };
+export type LeadInput = { leadType: LeadType; timeline?: string; phone?: string; email?: string; trade?: string; service?: string; company?: string; scope?: string };
 export function calculateLeadScore(data: LeadInput): number {
   let score = 45;
   if (data.leadType === "agency_prospect") {
-    if (data.trade === "Roofing" || data.trade === "Kitchen & Bath") score += 20;
+    if (data.trade) score += 10;
     if (data.phone) score += 10;
     if (data.email) score += 10;
     if (data.company) score += 10;
+    if (data.scope === "$5,000–$10,000 / month" || data.scope === "$10,000+ / month") score += 10;
+    else if (data.scope === "One-time project") score += 5;
+    if (data.timeline === "Ready to begin") score += 15;
+    else if (data.timeline === "Within a month") score += 10;
+    else if (data.timeline === "Within three months") score += 5;
   }
   if (data.leadType === "homeowner_quote") {
     if (data.timeline === "Immediately" || data.timeline === "Within 30 Days") score += 25;
