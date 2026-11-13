@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./workflow.css";
 
 export const metadata: Metadata = {
   title: { default: "Imago Growth OS — From attention to revenue", template: "%s | Imago Growth OS" },
