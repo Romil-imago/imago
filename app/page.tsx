@@ -75,6 +75,17 @@ export default function HomePage(){return <><SiteHeader/><main className="new-ho
    <div className="nh-path"><span>ORGANIC SOCIAL</span><i>+</i><span>PAID MEDIA</span><i>→</i><span className="nh-path-result">QUALIFIED DEMAND</span></div>
   </div>
  </section>
+ <section className="nh-work" id="work">
+  <div className="container">
+   <div className="nh-work-head"><span className="nh-label">CREATIVE IN ACTION / 03</span><div><h2>Ideas that earn<br/><em>the pause.</em></h2><p>Explore the thinking behind a few campaign directions. These are concept explorations—not client work—and show how Imago approaches attention, story and action.</p><Link className="nh-link" href="/work">Explore the concept lab ↗</Link></div></div>
+   <div className="nh-work-preview">
+    <Link className="nh-work-tile work-warm" href="/work"><span>01 / HOSPITALITY</span><strong>STAY A<br/>LITTLE LONGER.</strong><small>FEELING → BOOKING</small></Link>
+    <Link className="nh-work-tile work-blue" href="/work"><span>02 / B2B & SAAS</span><strong>LESS<br/>FRICTION.</strong><small>CLARITY → TRUST</small></Link>
+    <Link className="nh-work-tile work-lime" href="/work"><span>03 / WELLNESS</span><strong>FEEL THE<br/>SHIFT.</strong><small>RITUAL → RETURN</small></Link>
+   </div>
+   <span className="nh-work-note">SPECULATIVE CREATIVE DIRECTIONS · NOT CLIENT CAMPAIGNS OR RESULTS</span>
+  </div>
+ </section>
  <section className="nh-fit">
   <div className="container nh-fit-grid">
    <span className="nh-label">A GOOD FIT / 03</span>
