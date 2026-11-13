@@ -1,3 +1,3 @@
-import type {Metadata} from "next";import "./globals.css";import "./workflow.css";import "./fresh.css";
-export const metadata:Metadata={title:{default:"Imago — Independent Creative Studio",template:"%s | Imago"},description:"An independent social creative studio. Ideas with a pulse.",metadataBase:new URL(process.env.NEXT_PUBLIC_APP_URL||"http://localhost:3000"),openGraph:{title:"Imago — Independent Creative Studio",description:"Social-first strategy, content and creative.",type:"website"}};
+import type {Metadata} from "next";import "./zero.css";
+export const metadata:Metadata={title:{default:"Imago — Independent Creative Studio",template:"%s | Imago"},description:"An independent social-first creative studio. Ideas that make culture move.",metadataBase:new URL(process.env.NEXT_PUBLIC_APP_URL||"http://localhost:3000"),openGraph:{title:"Imago — Independent Creative Studio",description:"Social-first strategy, content and creative.",type:"website"}};
 export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body>{children}</body></html>}
