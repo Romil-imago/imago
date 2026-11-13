@@ -8,7 +8,7 @@ export function SiteHeader() {
     <button className="menu-toggle" type="button" aria-expanded={open} aria-label="Toggle navigation" onClick={() => setOpen(!open)}>☰</button>
     <nav className={`main-nav${open ? " nav-open" : ""}`} aria-label="Main navigation">
       <Link onClick={() => setOpen(false)} href="/#services">What we do</Link>
-      <Link onClick={() => setOpen(false)} href="/#method">Our method</Link>
+      <Link onClick={() => setOpen(false)} href="/#approach">Our method</Link>
       <Link onClick={() => setOpen(false)} href="/dashboard">Growth OS</Link>
     </nav>
     <Link className="button button-dark button-small nav-cta" href="/growth">Get a growth audit <span>↗</span></Link>
