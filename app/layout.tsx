@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "A digital art direction and growth studio connecting brand, social content, creative production and performance marketing.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"),
   openGraph: {
-    title: "Imago Studio — Creative & Growth",
+    title: "Imago — Digital Art Direction & Growth",
     description: "Distinctive brand worlds, platform-native content and performance creative built to move people and business.",
     type: "website"
   }
