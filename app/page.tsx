@@ -54,6 +54,7 @@ export default function HomePage(){return <><SiteHeader/><main className="new-ho
      </article>
     ))}
    </div>
+   <div className="nh-service-more"><Link className="nh-link" href="/services">Explore services & engagement options ↗</Link></div>
   </div>
  </section>
  <section className="nh-system" id="approach">
