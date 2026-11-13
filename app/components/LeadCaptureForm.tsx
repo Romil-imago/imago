@@ -41,7 +41,7 @@ export function LeadCaptureForm({ leadType, heading }: { leadType: LeadType; hea
     </div>
     <label className="honeypot" aria-hidden="true">Leave empty<input name="website" tabIndex={-1} autoComplete="off" /></label>
     <div className="consent-stack">
-      <label className="consent"><input type="checkbox" name="privacyConsent" required /><span>I agree to be contacted about this request and acknowledge the privacy notice.</span></label>
+      <label className="consent"><input type="checkbox" name="privacyConsent" required /><span>I agree to be contacted about this request and acknowledge the <a href="/privacy" target="_blank" rel="noreferrer">privacy notice</a>.</span></label>
       <label className="consent"><input type="checkbox" name="smsConsent" /><span>I separately agree to receive SMS updates about this request. Consent is optional and not a condition of purchase. Reply STOP to opt out.</span></label>
     </div>
     <button className="button button-lime form-submit" type="submit" disabled={status === "submitting"}>{status === "submitting" ? "Sending securely…" : homeowner ? "Request my estimate" : "Request my growth audit"} <span>↗</span></button>
